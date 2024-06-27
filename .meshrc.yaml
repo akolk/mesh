@@ -1,0 +1,106 @@
+serve:
+  port: 80
+  browser: false
+  playground: true
+  endpoint: /mesh
+  playgroundTitle: Gebouw Dossier Demo Playground
+
+sources:
+  - name: LOC
+    handler:
+      openapi:
+        source: ./locatieserver_openapi.yaml
+        endpoint: https://api.pdok.nl/bzk/locatieserver/search/v3_1/
+        ignoreErrorResponses: true
+    transforms:
+      - prefix:
+          value: LOC
+          includeRootOperations: true
+
+  - name: BAG
+    handler:
+      openapi:
+        source: https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/openapi.yaml
+        endpoint: https://api.bag.kadaster.nl/lvbag/individuelebevragingen/v2/
+        operationHeaders:
+          'X-Api-Key': '{env.BAG_KEY}'
+          'accept': 'application/hal+json'
+          'accept-crs': 'epsg:28992'
+          'Content-Crs': 'epsg:28992'
+        ignoreErrorResponses: true  
+    transforms:
+      - prefix:
+          value: BAG
+          includeRootOperations: true
+          
+  - name: RVO
+    handler:
+      openapi:
+        source: https://public.ep-online.nl/swagger/v3/swagger.json
+        endpoint: https://public.ep-online.nl/
+        operationHeaders:
+          Authorization: '{env.RVO_KEY}'
+    transforms:
+      - replace-field:
+          typeDefs: |
+            type NewPandEnergielabelV3 {
+              opnamedatum: String
+              metingGeldigTot: String
+              registratiedatum: String
+              }
+       
+          replacements:
+            - from:
+                type: PandEnergielabelV3
+                field: opnamedatum
+              to:
+                type: NewPandEnergielabelV3
+                field: opnamedatum
+
+            - from:
+                type: PandEnergielabelV3
+                field: metingGeldigTot
+              to:
+                type: NewPandEnergielabelV3
+                field: metingGeldigTot
+
+            - from:
+                type: PandEnergielabelV3
+                field: registratiedatum
+              to:
+                type: NewPandEnergielabelV3
+                field: registratiedatum
+
+      - prefix:
+          value: RVO
+          includeRootOperations: true
+
+      - rename:
+          renames:
+            - from:
+                type: api_v3_(.*)
+              to:
+                type: $1
+              useRegExpForTypes: true
+
+            - from:
+                type: Query
+                field: api_v3_(.*)
+              to:
+                type: Query
+                field: $1
+              useRegExpForFields: true
+
+
+  - name: TIBBER
+    handler:
+      graphql:
+        endpoint: https://api.tibber.com/v1-beta/gql
+        operationHeaders:
+          Authorization: 'Bearer {env.TIBBER_KEY}'
+        ignoreErrorResponses: true
+    transforms:
+      - prefix:
+          value: TIBBER
+          includeRootOperations: true
+
