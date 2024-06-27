@@ -1,0 +1,724 @@
+---
+components:
+  schemas:
+    error:
+      properties:
+        code:
+          example: 400
+          type: integer
+        metadata:
+          items:
+            example: error-class
+            type: string
+          type: array
+        msg:
+          example: undefined field
+          type: string
+      type: object
+    highlighting:
+      additionalProperties:
+        properties:
+          suggest:
+            items:
+              example: ''
+              type: string
+            type: array
+        type: object
+      type: object
+    response:
+      properties:
+        docs:
+          items:
+            type: object
+          type: array
+        maxScore:
+          format: float
+          type: number
+        numFound:
+          type: integer
+        numFoundExact:
+          type: boolean
+        start:
+          type: integer
+      type: object
+    spellcheck:
+      properties:
+        collations:
+          items:
+            oneOf:
+            - type: string
+            - properties:
+                collationQuery:
+                  type: string
+                hits:
+                  type: integer
+                misspellingsAndCorrections:
+                  items:
+                    type: string
+                  type: array
+              type: object
+          type: array
+        suggestions:
+          items:
+            oneOf:
+            - type: string
+            - properties:
+                endOffset:
+                  type: integer
+                numFound:
+                  type: integer
+                startOffset:
+                  type: integer
+                suggestion:
+                  items:
+                    type: string
+                  type: array
+              type: object
+          type: array
+      type: object
+info:
+  description: |
+    De PDOK Locatieserver is een open en gratis geocodeerservice waarmee gezocht
+    kan worden op gegevens uit verschillende overheidsregistraties (bijvoorbeeld
+    adressen, percelen en rijkswegen) om vervolgens doorgestuurd te worden naar
+    de locatie van de zoekopdracht.
+
+    De Locatieserver bestaat uit meerdere RESTful API's die eenvoudig geïntegreerd
+    kunnen worden in viewers en/of applicaties. De API's zijn open, gratis en bevatten
+    gegevens uit verschillende overheidsregistraties zoals adressen (postcodes,
+    straten, huisnummer), kadastrale percelen, wegen en hectometerpalen maar ook
+    woonplaatsen, wijken, buurten en waterschappen. De onderliggende gegevens worden
+    zeer frequent bijgewerkt.
+
+    De Locatieserver bestaat totaal uit vier RESTful API's die gepubliceerd worden
+    volgens de Open API Specificatie [https://api.pdok.nl/bzk/locatieserver/search/v3_1/ui/](https://api.pdok.nl/bzk/locatieserver/search/v3_1/ui/).
+    Hiermee zijn de mogelijkheden van de Locatieserver API's (input en output)
+    gedocumenteerd.
+
+    Het zoeken op gegevens wordt vereenvoudigd met behulp van de **Suggest API** die de
+    mogelijkheid biedt om een (gedeelte van een) zoekopdracht op te voeren, waarnaar
+    er suggesties teruggegeven worden. Dankzij slimme technieken als auto-aanvullen
+    en ondersteuning van alternatieve schrijfwijzen en synoniemen vinden gebruikers
+    snel waar ze naar op zoek zijn. Het is ook mogelijk om bij zoekopdrachten een
+    locatie van de gebruiker mee te geven zodat suggesties op basis van die locatie
+    worden gesorteerd.
+
+    Zodra er op basis van suggesties van de Suggest API een keuze is gemaakt, wordt de
+    **Lookup API** aangeroepen, welke o.a. een (versimpelde) geometrie van de zoekopdracht
+    teruggeeft. Hiermee kan een gebruiker naar de locatie van de zoekopdracht worden
+    gestuurd op de kaart. Dankzij de highlight functie kan het betreffende gegeven
+    (object) vervolgens worden opgelicht op de kaart.
+
+    De suggest- en de lookup API werken dus als een tweetrapsraket. Er is ook een
+    mogelijkheid om vrij te zoeken (klassiek geocoderen) met de **Free API** waar zonder
+    tussenkomst van suggesties de API direct resultaten teruggeeft op basis van de
+    zoekopdracht.
+
+    De **Reverse API** biedt de mogelijkheid om een locatie (punt geometrie) op te geven
+    om vervolgens verschillende gegevens in een range rondom deze locatie te ontvangen.
+    Bijvoorbeeld het ophalen van alle adressen of wegen in de buurt (op basis van de
+    opgegeven locatie). Dit wordt ook wel Reverse Geocoderen genoemd. Met de **Reverse
+    API** kan je op basis van een coördinaat en een range (bijvoorbeeld 1 kilometer)
+    de gewenste gegevens binnen die range opvragen en visualiseren.
+
+    De Locatieserver is primair een geocodeerservice. Voor andere doeleinden zoals het
+    rechtstreeks opvragen van bepaalde gegevens of het downloaden van bulk data biedt
+    PDOK andere mogelijkheden via webservices en/of downloads.
+
+    Meer informatie over de Locatieserver is ook te vinden op de Locatieserver Wiki op
+    [Github](https://github.com/PDOK/locatieserver/wiki/API-Locatieserver) of volg
+    discussies op het [PDOK forum](https://geoforum.nl/c/applicaties-en-diensten/locatieserver/27).
+  title: Locatieserver
+  version: v3_1
+openapi: 3.0.0
+paths:
+  "/free":
+    get:
+      operationId: free
+      parameters:
+      - description: |
+          Hiermee worden de zoektermen opgegeven. De Solr-syntax voor zoektermen kan hier
+          worden toegepast, bijv. combineren met "and", en het gebruik van dubbele quotes
+          voor opeenvolgende zoektermen. Zoektermen mogen incompleet zijn. Ook wordt er
+          gebruik gemaakt van synoniemen.
+
+          Voorbeelden:
+          `q=Utrecht`: geeft resultaten terug met de zoekterm Utrecht, bijv. adressen in
+          de stad Utrecht, woonplaatsen en gemeenten in de provincie Utrecht.
+
+          `q="De Bilt"`: geeft resultaten terug met de zoekterm De Bilt, bijv. de
+          woonplaats en gemeente De Bilt, of adressen in deze woonplaats. Let op
+          dat bij het daadwerkelijk verzenden van het request onder water de
+          URL-encodingregels toegepast worden, dus een spatie wordt verzonden als
+          een plusteken.
+
+          `q="Sint Jacob" Utre`: geeft o.a. adressen terug waarvan er delen
+          achtereenvolgens beginnen met "Sint" en "Jacob", of met "St"
+          (synoniem) en "Jacob", en waar ook een deel met "Utre" begint. Een
+          voorbeeld is het adres St.-Jacobsstraat 200 (officiële schrijfwijze)
+          in Utrecht.
+        in: query
+        name: q
+        schema:
+          maxLength: 400
+          type: string
+      - description: |
+          Hiermee kan een coördinaat (in lat/lon, ofwel WGS84) worden opgegeven. Met
+          behulp van deze parameters worden de gevonden zoekresultaten gesorteerd op
+          afstand van het meegegeven punt. Wanneer de locatie van de gebruiker bekend
+          is, kan op deze manier effectiever worden gezocht.
+
+          Het meegeven van een coördinaat is met name nuttig voor de suggest- en vrije
+          geocoder-services. Hier worden meestal meerdere resultaten teruggegeven.
+          Als decimaal scheidingsteken moet een punt worden opgegeven i.p.v. een komma.
+        in: query
+        name: lat
+        schema:
+          format: float
+          type: number
+      - description: |
+          Hiermee kan een coördinaat (in lat/lon, ofwel WGS84) worden opgegeven. Met
+          behulp van deze parameters worden de gevonden zoekresultaten gesorteerd op
+          afstand van het meegegeven punt. Wanneer de locatie van de gebruiker bekend
+          is, kan op deze manier effectiever worden gezocht.
+
+          Het meegeven van een coördinaat is met name nuttig voor de suggest- en vrije
+          geocoder-services. Hier worden meestal meerdere resultaten teruggegeven.
+          Als decimaal scheidingsteken moet een punt worden opgegeven i.p.v. een komma.
+
+          Voorbeeld: `lat=52.09&lon=5.12`
+
+          De resultaten worden gesorteerd op afstand van een bepaald punt in het
+          centrum van Utrecht.
+        in: query
+        name: lon
+        schema:
+          format: float
+          type: number
+      - description: Hiermee worden de velden opgegeven die teruggegeven dienen te
+          worden.
+        in: query
+        name: fl
+        schema:
+          default: id identificatie weergavenaam bron type openbareruimte_id nwb_id
+            openbareruimtetype straatnaam straatnaam_verkort adresseerbaarobject_id
+            nummeraanduiding_id huisnummer huisletter huisnummertoevoeging huis_nlt
+            postcode buurtnaam buurtcode wijknaam wijkcode woonplaatscode woonplaatsnaam
+            gemeentecode gemeentenaam provinciecode provincienaam provincieafkorting
+            kadastrale_gemeentecode kadastrale_gemeentenaam kadastrale_sectie perceelnummer
+            kadastrale_grootte gekoppeld_perceel kadastrale_aanduiding volgnummer
+            gekoppeld_appartement wegnummer hectometernummer zijde hectometerletter
+            waterschapsnaam waterschapscode rdf_seealso centroide_ll centroide_rd
+            score
+          pattern: "^([a-z_\\*]+( |,|, )?)+$"
+          type: string
+      - description: Hiermee kan een filter query worden opgegeven, bijv. `fq=bron:BAG`.
+        in: query
+        name: fq
+        schema:
+          default:
+          - type:(gemeente OR woonplaats OR weg OR postcode OR adres)
+          items:
+            example: ''
+            type: string
+          type: array
+      - description: |
+          Hiermee wordt het default zoekveld opgegeven. Dit is het veld waar standaard
+          in gezocht wordt, wanneer de veldnaam niet wordt meegegeven.
+        in: query
+        name: df
+        schema:
+          default: tekst
+          type: string
+      - description: |
+          Met behulp van deze parameter kan aan bepaalde _velden_ een extra boost worden
+          meegegeven. Hiermee kan de scoreberekening worden aangepast.
+        in: query
+        name: qf
+        schema:
+          type: string
+      - description: |
+          Met behulp van deze parameter kan aan bepaalde _veldwaarden_ een extra
+          boost worden meegegeven. Ook hiermee kan de scoreberekening worden aangepast.
+
+          Voor elke boost query moet een aparte `bq=<boost>` worden gebruikt.
+          Bijvoorbeeld: `bq=type:gemeente^1.5&bq=type:woonplaats^1.5`.
+        in: query
+        name: bq
+        schema:
+          default:
+          - type:provincie^1.5
+          - type:gemeente^1.5
+          - type:woonplaats^1.5
+          - type:weg^1.5
+          - type:postcode^0.5
+          - type:adres^1
+          items:
+            example: ''
+            type: string
+          type: array
+      - description: |
+          Hiermee wordt opgegeven wat de index is van het eerste resultaat dat
+          teruggegeven wordt. Dit is zero-based. In combinatie met de rows-parameter
+          kunnen deze services gepagineerd worden bevraagd. Het maximum is "10.000".
+        in: query
+        name: start
+        schema:
+          default: 0
+          maximum: 10000
+          type: integer
+      - description: |
+          Hiermee wordt opgegeven wat het maximale aantal rijen (ofwel resultaten) is
+          dat teruggegeven moet worden op deze bevraging. Het maximum is "100".
+        in: query
+        name: rows
+        schema:
+          default: 10
+          maximum: 100
+          type: integer
+      - description: Hiermee kan worden opgegeven hoe de sortering plaatsvindt.
+        in: query
+        name: sort
+        schema:
+          default: score desc,sortering asc,weergavenaam asc
+          type: string
+      - description: Hiermee wordt opgegeven wat het outputformaat is van de bevraging.
+        in: query
+        name: wt
+        schema:
+          default: json
+          enum:
+          - json
+          - xml
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  response:
+                    "$ref": "#/components/schemas/response"
+                type: object
+            application/xml: {}
+          description: 200 OK
+        '400':
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    "$ref": "#/components/schemas/error"
+                type: object
+            application/xml: {}
+            text/html: {}
+            text/plain:
+              schema:
+                example: 'parameter x in query has an error: value y: an invalid integer:
+                  invalid syntax'
+                type: string
+          description: 400 Bad Request
+      summary: |
+        De Free API biedt de mogelijkheid om vrij te zoeken (klassiek geocoderen), waar zonder
+        tussenkomst van suggesties de API direct resultaten teruggeeft op basis van de zoekopdracht.
+      tags:
+      - Locatieserver
+  "/lookup":
+    get:
+      operationId: lookup
+      parameters:
+      - description: Hiermee wordt het object-ID opgegeven.
+        in: query
+        name: id
+        required: true
+        schema:
+          type: string
+      - description: Hiermee worden de velden opgegeven die teruggegeven dienen te
+          worden.
+        in: query
+        name: fl
+        schema:
+          default: id identificatie weergavenaam bron type openbareruimte_id nwb_id
+            openbareruimtetype straatnaam straatnaam_verkort adresseerbaarobject_id
+            nummeraanduiding_id huisnummer huisletter huisnummertoevoeging huis_nlt
+            postcode buurtnaam buurtcode wijknaam wijkcode woonplaatscode woonplaatsnaam
+            gemeentecode gemeentenaam provinciecode provincienaam provincieafkorting
+            kadastrale_gemeentecode kadastrale_gemeentenaam kadastrale_sectie perceelnummer
+            kadastrale_grootte gekoppeld_perceel volgnummer gekoppeld_appartement
+            kadastrale_aanduiding wegnummer hectometernummer zijde hectometerletter
+            waterschapsnaam waterschapscode rdf_seealso centroide_ll centroide_rd
+          pattern: "^([a-z_\\*]+( |,|, )?)+$"
+          type: string
+      - description: Hiermee kan een filter query worden opgegeven, bijv. `fq=bron:BAG`.
+        in: query
+        name: fq
+        schema:
+          items:
+            example: ''
+            type: string
+          type: array
+      - description: Hiermee wordt opgegeven wat het outputformaat is van de bevraging.
+        in: query
+        name: wt
+        schema:
+          default: json
+          enum:
+          - json
+          - xml
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  response:
+                    "$ref": "#/components/schemas/response"
+                type: object
+            application/xml: {}
+          description: 200 OK
+        '400':
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    "$ref": "#/components/schemas/error"
+                type: object
+            application/xml: {}
+            text/html: {}
+            text/plain:
+              schema:
+                example: 'parameter x in query has an error: value y: an invalid integer:
+                  invalid syntax'
+                type: string
+          description: 400 Bad Request
+      summary: |
+        Zodra er op basis van suggesties van de Suggest API een keuze is gemaakt, wordt de
+        Lookup API aangeroepen, welke o.a. een (versimpelde) geometrie van de zoekopdracht
+        teruggeeft.
+      tags:
+      - Locatieserver
+  "/reverse":
+    get:
+      operationId: reverseGeocoder
+      parameters:
+      - description: |
+          Hiermee wordt het coördinaat in X/Y (RD), of in lat/lon (WGS84)
+          opgegeven. Vanaf dit coördinaat gaat de reverse geocoder zoeken.
+        example: 194195.304
+        in: query
+        name: X
+        schema:
+          format: float
+          type: number
+      - description: |
+          Hiermee wordt het coördinaat in X/Y (RD), of in lat/lon (WGS84)
+          opgegeven. Vanaf dit coördinaat gaat de reverse geocoder zoeken.
+        example: 465885.902
+        in: query
+        name: Y
+        schema:
+          format: float
+          type: number
+      - description: |
+          Hiermee wordt het coördinaat in X/Y (RD), of in lat/lon (WGS84)
+          opgegeven. Vanaf dit coördinaat gaat de reverse geocoder zoeken.
+        in: query
+        name: lat
+        schema:
+          format: float
+          type: number
+      - description: |
+          Hiermee wordt het coördinaat in X/Y (RD), of in lat/lon (WGS84)
+          opgegeven. Vanaf dit coördinaat gaat de reverse geocoder zoeken.
+        in: query
+        name: lon
+        schema:
+          format: float
+          type: number
+      - description: |
+          Hiermee kan worden opgegeven welke resultaat types je terug krijgt in het
+          resultaat. Voor elke type dat je wilt terugkrijgen moet je een aparte type
+          parameter toevoegen, bijv. `type=adres&type=gemeente&type=perceel`. Met
+          `type=*` krijg je alle types terug. Deze wordt voor het bepalen van de
+          resultaten gebruikt en heeft dus geen invloed op aantal resultaten dat
+          wordt teruggegeven.
+        in: query
+        name: type
+        schema:
+          default: adres
+          pattern: "^([a-z_\\*]+(,)?)+$"
+          type: string
+      - description: |
+          Hiermee kan een maximale zoekstraal in meters worden opgegeven. Er zullen
+          dan geen resultaten worden teruggegeven die verder liggen dan deze waarden.
+        in: query
+        name: distance
+        schema:
+          type: integer
+      - description: Hiermee worden de velden opgegeven die teruggegeven dienen te
+          worden.
+        in: query
+        name: fl
+        schema:
+          default: id type weergavenaam score afstand
+          pattern: "^([a-z_\\*]+( |,|, )?)+$"
+          type: string
+      - description: |
+          Hiermee kan een filter query worden opgegeven, bijv. `fq=bron:BAG`. Deze wordt
+          uitgevoerd nadat de dichtsbijzijnde resultaten zijn gevonden, dus resultaten
+          die hier niet aan voldoen worden weggefilterd waardoor je minder resultaten
+          dan het aantal rows kan terugkrijgen.
+        in: query
+        name: fq
+        schema:
+          example: ''
+          type: string
+      - description: |
+          Hiermee wordt opgegeven wat de index is van het eerste resultaat dat
+          teruggegeven wordt. Dit is zero-based. In combinatie met de rows-parameter
+          kunnen deze services gepagineerd worden bevraagd. Het maximum is "10.000".
+        in: query
+        name: start
+        schema:
+          default: 0
+          maximum: 10000
+          type: integer
+      - description: |
+          Hiermee wordt opgegeven wat het maximale aantal rijen (ofwel resultaten) is
+          dat teruggegeven moet worden op deze bevraging. Het maximum is "100".
+        in: query
+        name: rows
+        schema:
+          default: 10
+          maximum: 100
+          type: integer
+      - description: Hiermee wordt opgegeven wat het outputformaat is van de bevraging.
+        in: query
+        name: wt
+        schema:
+          default: json
+          enum:
+          - json
+          - xml
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  response:
+                    "$ref": "#/components/schemas/response"
+                type: object
+            application/xml: {}
+          description: 200 OK
+        '400':
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    "$ref": "#/components/schemas/error"
+                type: object
+            application/xml: {}
+            text/html: {}
+            text/plain:
+              schema:
+                example: 'parameter x in query has an error: value y: an invalid integer:
+                  invalid syntax'
+                type: string
+          description: 400 Bad Request
+      summary: |
+        De Reverse API biedt de mogelijkheid om een locatie (punt geometrie) op te geven
+        om vervolgens verschillende gegevens in een range rondom deze locatie te ontvangen.
+      tags:
+      - Locatieserver
+  "/suggest":
+    get:
+      operationId: suggest
+      parameters:
+      - description: |
+          Hiermee worden de zoektermen opgegeven. De Solr-syntax voor zoektermen kan hier
+          worden toegepast, bijv. combineren met "and", en het gebruik van dubbele quotes
+          voor opeenvolgende zoektermen. Zoektermen mogen incompleet zijn. Ook wordt er
+          gebruik gemaakt van synoniemen.
+
+          Voorbeelden:
+          `q=Utrecht`: geeft resultaten terug met de zoekterm Utrecht, bijv. adressen in
+          de stad Utrecht, woonplaatsen en gemeenten in de provincie Utrecht.
+
+          `q="De Bilt"`: geeft resultaten terug met de zoekterm De Bilt, bijv. de
+          woonplaats en gemeente De Bilt, of adressen in deze woonplaats. Let op
+          dat bij het daadwerkelijk verzenden van het request onder water de
+          URL-encodingregels toegepast worden, dus een spatie wordt verzonden als
+          een plusteken.
+
+          `q="Sint Jacob" Utre`: geeft o.a. adressen terug waarvan er delen
+          achtereenvolgens beginnen met "Sint" en "Jacob", of met "St"
+          (synoniem) en "Jacob", en waar ook een deel met "Utre" begint. Een
+          voorbeeld is het adres St.-Jacobsstraat 200 (officiële schrijfwijze)
+          in Utrecht.
+        in: query
+        name: q
+        required: true
+        schema:
+          maxLength: 400
+          type: string
+      - description: |
+          Hiermee kan een coördinaat (in lat/lon, ofwel WGS84) worden opgegeven. Met
+          behulp van deze parameters worden de gevonden zoekresultaten gesorteerd op
+          afstand van het meegegeven punt. Wanneer de locatie van de gebruiker bekend
+          is, kan op deze manier effectiever worden gezocht.
+
+          Het meegeven van een coördinaat is met name nuttig voor de suggest- en vrije
+          geocoder-services. Hier worden meestal meerdere resultaten teruggegeven.
+          Als decimaal scheidingsteken moet een punt worden opgegeven i.p.v. een komma.
+
+          Voorbeeld: `lat=52.09&lon=5.12`
+
+          De resultaten worden gesorteerd op afstand van een bepaald punt in het
+          centrum van Utrecht.
+        in: query
+        name: lat
+        schema:
+          format: float
+          type: number
+      - description: |
+          Hiermee kan een coördinaat (in lat/lon, ofwel WGS84) worden opgegeven. Met
+          behulp van deze parameters worden de gevonden zoekresultaten gesorteerd op
+          afstand van het meegegeven punt. Wanneer de locatie van de gebruiker bekend
+          is, kan op deze manier effectiever worden gezocht.
+
+          Het meegeven van een coördinaat is met name nuttig voor de suggest- en vrije
+          geocoder-services. Hier worden meestal meerdere resultaten teruggegeven.
+          Als decimaal scheidingsteken moet een punt worden opgegeven i.p.v. een komma.
+
+          Voorbeeld: `lat=52.09&lon=5.12`
+
+          De resultaten worden gesorteerd op afstand van een bepaald punt in het
+          centrum van Utrecht.
+        in: query
+        name: lon
+        schema:
+          format: float
+          type: number
+      - description: Hiermee worden de velden opgegeven die teruggegeven dienen te
+          worden.
+        in: query
+        name: fl
+        schema:
+          default: id weergavenaam type score adrestype
+          pattern: "^([a-z_\\*]+( |,|, )?)+$"
+          type: string
+      - description: Hiermee kan een filter query worden opgegeven, bijv. `fq=bron:BAG`.
+        in: query
+        name: fq
+        schema:
+          default:
+          - type:(gemeente OR woonplaats OR weg OR postcode OR adres)
+          items:
+            example: ''
+            type: string
+          type: array
+      - description: |
+          Met behulp van deze parameter kan aan bepaalde _velden_ een extra boost worden
+          meegegeven. Hiermee kan de scoreberekening worden aangepast.
+        in: query
+        name: qf
+        schema:
+          default: exacte_match^1 suggest^0.5 huisnummer^0.5 huisletter^0.5 huisnummertoevoeging^0.5
+          type: string
+      - description: |
+          Met behulp van deze parameter kan aan bepaalde _veldwaarden_ een extra
+          boost worden meegegeven. Ook hiermee kan de scoreberekening worden aangepast.
+
+          Voor elke boost query moet een aparte `bq=<boost>` worden gebruikt.
+          Bijvoorbeeld: `bq=type:gemeente^1.5&bq=type:woonplaats^1.5`.
+        in: query
+        name: bq
+        schema:
+          default:
+          - type:provincie^1.5
+          - type:gemeente^1.5
+          - type:woonplaats^1.5
+          - type:weg^1.5
+          - type:postcode^0.6
+          - type:adres^1
+          items:
+            example: ''
+            type: string
+          type: array
+      - description: |
+          Hiermee wordt opgegeven wat de index is van het eerste resultaat dat
+          teruggegeven wordt. Dit is zero-based. In combinatie met de rows-parameter
+          kunnen deze services gepagineerd worden bevraagd. Hhet maximum is "10.000".
+        in: query
+        name: start
+        schema:
+          default: 0
+          maximum: 10000
+          type: integer
+      - description: |
+          Hiermee wordt opgegeven wat het maximale aantal rijen (ofwel resultaten) is
+          dat teruggegeven moet worden op deze bevraging. Het maximum is "100".
+        in: query
+        name: rows
+        schema:
+          default: 10
+          maximum: 3000
+          type: integer
+      - description: Hiermee kan worden opgegeven hoe de sortering plaatsvindt.
+        in: query
+        name: sort
+        schema:
+          default: score desc,sortering asc,weergavenaam asc
+          type: string
+      - description: Hiermee wordt opgegeven wat het outputformaat is van de bevraging.
+        in: query
+        name: wt
+        schema:
+          default: json
+          enum:
+          - json
+          - xml
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  highlighting:
+                    "$ref": "#/components/schemas/highlighting"
+                  response:
+                    "$ref": "#/components/schemas/response"
+                  spellcheck:
+                    "$ref": "#/components/schemas/spellcheck"
+                type: object
+            application/xml: {}
+          description: 200 OK
+        '400':
+          content:
+            application/json:
+              schema:
+                properties:
+                  error:
+                    "$ref": "#/components/schemas/error"
+                type: object
+            application/xml: {}
+            text/html: {}
+            text/plain:
+              schema:
+                example: 'parameter x in query has an error: value y: an invalid integer:
+                  invalid syntax'
+                type: string
+          description: 400 Bad Request
+      summary: |
+        De Suggest API biedt de mogelijkheid om een (gedeelte van een) zoekopdracht op
+        te voeren, waarnaar er suggesties teruggegeven worden.
+      tags:
+      - Locatieserver
+servers:
+- url: https://api.pdok.nl/bzk/locatieserver/search/v3_1
