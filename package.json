@@ -13,7 +13,7 @@
     "@graphql-mesh/store": "0.99.0", 
     "@graphql-mesh/cross-helpers": "0.4.4",
     "@graphql-mesh/types": "0.99.0",
-    "@graphql-mesh/json-schema": "0.102.0",
+    "@graphql-mesh/json-schema": "0.102.1",
     "@graphql-mesh/graphql": "0.99.0",
     "@graphql-mesh/openapi": "0.102.0",
     "@graphql-mesh/transform-rename": "0.99.0",
