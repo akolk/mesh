@@ -14,7 +14,7 @@
     "@graphql-mesh/cross-helpers": "0.4.4",
     "@graphql-mesh/types": "0.99.1",
     "@graphql-mesh/json-schema": "0.102.1",
-    "@graphql-mesh/graphql": "0.99.1",
+    "@graphql-mesh/graphql": "0.99.2",
     "@graphql-mesh/openapi": "0.102.1",
     "@graphql-mesh/transform-rename": "0.99.1",
     "@graphql-mesh/transform-filter-schema": "0.99.1",
