@@ -21,7 +21,7 @@
     "@graphql-mesh/transform-prefix": "0.99.4",
     "@graphql-mesh/transform-type-merging": "0.99.4",
     "@graphql-mesh/transform-replace-field": "0.99.4",
-    "@graphql-mesh/transform-hoist-field": "0.99.4",
+    "@graphql-mesh/transform-hoist-field": "0.99.5",
     "@graphql-mesh/tuql": "0.100.6",
     "graphql-scalars": "1.23.0",
     "@graphql-tools/utils": "10.3.2",
