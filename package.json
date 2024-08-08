@@ -17,7 +17,7 @@
     "@graphql-mesh/graphql": "0.100.0",
     "@graphql-mesh/openapi": "0.104.0",
     "@graphql-mesh/transform-rename": "0.99.7",
-    "@graphql-mesh/transform-filter-schema": "0.99.8",
+    "@graphql-mesh/transform-filter-schema": "0.100.0",
     "@graphql-mesh/transform-prefix": "0.99.7",
     "@graphql-mesh/transform-type-merging": "0.99.8",
     "@graphql-mesh/transform-replace-field": "0.99.7",
