@@ -18,7 +18,7 @@
     "@graphql-mesh/openapi": "0.106.6",
     "@graphql-mesh/transform-rename": "0.102.2",
     "@graphql-mesh/transform-filter-schema": "0.102.4",
-    "@graphql-mesh/transform-prefix": "0.102.2",
+    "@graphql-mesh/transform-prefix": "0.102.4",
     "@graphql-mesh/transform-type-merging": "0.102.2",
     "@graphql-mesh/transform-replace-field": "0.102.2",
     "@graphql-mesh/transform-hoist-field": "0.102.4",
