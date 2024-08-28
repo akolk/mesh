@@ -12,4 +12,4 @@ COPY package.json \
 EXPOSE 80
 
 RUN yarn install 
-CMD yarn mesh dev
+CMD ["yarn", "mesh", "dev"]
