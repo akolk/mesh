@@ -4,6 +4,10 @@ FROM node:20.17-alpine3.20@sha256:1a526b97cace6b4006256570efa1a29cd1fe4b96a5301f
 RUN ln -s /usr/bin/python3 /usr/bin/python & \
     ln -s /usr/bin/pip3 /usr/bin/pip
 
+RUN python -v
+RUN which python
+RUN which python3
+
 WORKDIR /myapp
 COPY package.json \
      .meshrc.yaml \
