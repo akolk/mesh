@@ -10,6 +10,7 @@ sources:
     handler:
       odata:
         endpoint: https://opendata.cbs.nl/ODataApi/odata/85496NED/
+        source: ./CBS85496.xml
         batch: multipart
         expandNavProps: true
         
