@@ -6,6 +6,13 @@ serve:
   playgroundTitle: Gebouw Dossier Demo Playground
 
 sources:
+  - name: CBS85496NED
+    handler:
+      odata:
+        endpoint: https://opendata.cbs.nl/ODataApi/odata/85496NED/
+        batch: multipart
+        expandNavProps: true
+        
   - name: LOC
     handler:
       openapi:
