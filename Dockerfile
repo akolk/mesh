@@ -12,7 +12,8 @@ RUN ln -s /usr/bin/python3 /usr/bin/python & \
 WORKDIR /myapp
 COPY package.json \
      .meshrc.yaml \
-     locatieserver_openapi.yaml .
+     locatieserver_openapi.yaml \
+     CBS85496.xml .
 
 EXPOSE 80
 
