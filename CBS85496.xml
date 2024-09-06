@@ -1,0 +1,274 @@
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0" data-google-analytics-opt-out="">
+<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="3.0">
+<Schema xmlns="http://schemas.microsoft.com/ado/2006/04/edm" Namespace="Cbs.OData">
+<EntityType Name="TableInfo">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="Title" Type="Edm.String"/>
+<Property Name="ShortTitle" Type="Edm.String"/>
+<Property Name="Identifier" Type="Edm.String"/>
+<Property Name="Summary" Type="Edm.String"/>
+<Property Name="Modified" Type="Edm.DateTimeOffset"/>
+<Property Name="ReasonDelivery" Type="Edm.String"/>
+<Property Name="ExplanatoryText" Type="Edm.String"/>
+<Property Name="Language" Type="Edm.String"/>
+<Property Name="Catalog" Type="Edm.String"/>
+<Property Name="Frequency" Type="Edm.String"/>
+<Property Name="Period" Type="Edm.String"/>
+<Property Name="ShortDescription" Type="Edm.String"/>
+<Property Name="Description" Type="Edm.String"/>
+<Property Name="DefaultPresentation" Type="Edm.String"/>
+<Property Name="DefaultSelection" Type="Edm.String"/>
+<Property Name="GraphTypes" Type="Edm.String"/>
+<Property Name="OutputStatus" Type="Edm.String"/>
+<Property Name="Source" Type="Edm.String"/>
+<Property Name="MetaDataModified" Type="Edm.DateTimeOffset"/>
+<Property Name="SearchPriority" Type="Edm.String"/>
+</EntityType>
+<EntityType Name="Category">
+<Key>
+<PropertyRef Name="Key"/>
+</Key>
+<Property Name="Key" Type="Edm.String" Nullable="false"/>
+<Property Name="Title" Type="Edm.String"/>
+<Property Name="Description" Type="Edm.String"/>
+<Property Name="CategoryGroupID" Type="Edm.Int32"/>
+</EntityType>
+<EntityType Name="TimeCategory">
+<Key>
+<PropertyRef Name="Key"/>
+</Key>
+<Property Name="Key" Type="Edm.String" Nullable="false"/>
+<Property Name="Title" Type="Edm.String"/>
+<Property Name="Description" Type="Edm.String"/>
+<Property Name="Status" Type="Edm.String"/>
+</EntityType>
+<EntityType Name="GeoDetailCategory">
+<Key>
+<PropertyRef Name="Key"/>
+</Key>
+<Property Name="Key" Type="Edm.String" Nullable="false"/>
+<Property Name="Title" Type="Edm.String"/>
+<Property Name="Description" Type="Edm.String"/>
+<Property Name="Municipality" Type="Edm.String"/>
+<Property Name="DetailRegionCode" Type="Edm.String"/>
+</EntityType>
+<EntityType Name="UData">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="Perioden" Type="Edm.String"/>
+<Property Name="TotaleBevolking_1" Type="Edm.String"/>
+<Property Name="Mannen_2" Type="Edm.String"/>
+<Property Name="Vrouwen_3" Type="Edm.String"/>
+<Property Name="TotaleBevolking_4" Type="Edm.String"/>
+<Property Name="Ongehuwd_5" Type="Edm.String"/>
+<Property Name="Gehuwd_6" Type="Edm.String"/>
+<Property Name="Verweduwd_7" Type="Edm.String"/>
+<Property Name="Gescheiden_8" Type="Edm.String"/>
+<Property Name="TotaleBevolking_9" Type="Edm.String"/>
+<Property Name="JongerDan20Jaar_10" Type="Edm.String"/>
+<Property Name="k_20Tot40Jaar_11" Type="Edm.String"/>
+<Property Name="k_40Tot65Jaar_12" Type="Edm.String"/>
+<Property Name="k_65Tot80Jaar_13" Type="Edm.String"/>
+<Property Name="k_80JaarOfOuder_14" Type="Edm.String"/>
+<Property Name="JongerDan20Jaar_15" Type="Edm.String"/>
+<Property Name="k_20Tot40Jaar_16" Type="Edm.String"/>
+<Property Name="k_40Tot65Jaar_17" Type="Edm.String"/>
+<Property Name="k_65Tot80Jaar_18" Type="Edm.String"/>
+<Property Name="k_80JaarOfOuder_19" Type="Edm.String"/>
+<Property Name="TotaleDruk_20" Type="Edm.String"/>
+<Property Name="GroeneDruk_21" Type="Edm.String"/>
+<Property Name="GrijzeDruk_22" Type="Edm.String"/>
+<Property Name="TotaleBevolking_23" Type="Edm.String"/>
+<Property Name="Mannen_24" Type="Edm.String"/>
+<Property Name="Vrouwen_25" Type="Edm.String"/>
+<Property Name="TotaleBevolking_26" Type="Edm.String"/>
+<Property Name="Nederland_27" Type="Edm.String"/>
+<Property Name="EuropaExclusiefNederland_28" Type="Edm.String"/>
+<Property Name="TotaalBuitenEuropa_29" Type="Edm.String"/>
+<Property Name="Turkije_30" Type="Edm.String"/>
+<Property Name="Marokko_31" Type="Edm.String"/>
+<Property Name="Suriname_32" Type="Edm.String"/>
+<Property Name="NederlandseCariben_33" Type="Edm.String"/>
+<Property Name="Indonesie_34" Type="Edm.String"/>
+<Property Name="OverigAfrika_35" Type="Edm.String"/>
+<Property Name="OverigAzie_36" Type="Edm.String"/>
+<Property Name="OverigAmerikaEnOceanie_37" Type="Edm.String"/>
+<Property Name="Nederland_38" Type="Edm.String"/>
+<Property Name="EuropaExclusiefNederland_39" Type="Edm.String"/>
+<Property Name="TotaalBuitenEuropa_40" Type="Edm.String"/>
+<Property Name="Turkije_41" Type="Edm.String"/>
+<Property Name="Marokko_42" Type="Edm.String"/>
+<Property Name="Suriname_43" Type="Edm.String"/>
+<Property Name="NederlandseCariben_44" Type="Edm.String"/>
+<Property Name="Indonesie_45" Type="Edm.String"/>
+<Property Name="OverigAfrika_46" Type="Edm.String"/>
+<Property Name="OverigAzie_47" Type="Edm.String"/>
+<Property Name="OverigAmerikaEnOceanie_48" Type="Edm.String"/>
+<Property Name="Nederland_49" Type="Edm.String"/>
+<Property Name="EuropaExclusiefNederland_50" Type="Edm.String"/>
+<Property Name="TotaalBuitenEuropa_51" Type="Edm.String"/>
+<Property Name="Turkije_52" Type="Edm.String"/>
+<Property Name="Marokko_53" Type="Edm.String"/>
+<Property Name="Suriname_54" Type="Edm.String"/>
+<Property Name="NederlandseCariben_55" Type="Edm.String"/>
+<Property Name="Indonesie_56" Type="Edm.String"/>
+<Property Name="OverigAfrika_57" Type="Edm.String"/>
+<Property Name="OverigAzie_58" Type="Edm.String"/>
+<Property Name="OverigAmerikaEnOceanie_59" Type="Edm.String"/>
+<Property Name="TotaalHuishoudens_60" Type="Edm.String"/>
+<Property Name="Eenpersoonshuishoudens_61" Type="Edm.String"/>
+<Property Name="Meerpersoonshuishoudens_62" Type="Edm.String"/>
+<Property Name="GemiddeldeHuishoudensgrootte_63" Type="Edm.String"/>
+<Property Name="PersonenInInstitutioneleHuishoudens_64" Type="Edm.String"/>
+<Property Name="TotaleBevolkingsgroei_65" Type="Edm.String"/>
+<Property Name="TotaleBevolkingsgroeiRelatief_66" Type="Edm.String"/>
+<Property Name="LevendGeborenKinderen_67" Type="Edm.String"/>
+<Property Name="Overledenen_68" Type="Edm.String"/>
+<Property Name="Geboorteoverschot_69" Type="Edm.String"/>
+<Property Name="GeboorteoverschotRelatief_70" Type="Edm.String"/>
+<Property Name="Immigratie_71" Type="Edm.String"/>
+<Property Name="EmigratieInclusiefAdministratieveC_72" Type="Edm.String"/>
+<Property Name="MigratiesaldoInclusiefAdministratie_73" Type="Edm.String"/>
+<Property Name="MigratiesaldoInclusiefCoRelatief_74" Type="Edm.String"/>
+<Property Name="OverigeCorrecties_75" Type="Edm.String"/>
+<Property Name="Bevolkingsdichtheid_76" Type="Edm.String"/>
+</EntityType>
+<EntityType Name="TData">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="Perioden" Type="Edm.String"/>
+<Property Name="TotaleBevolking_1" Type="Edm.Int32"/>
+<Property Name="Mannen_2" Type="Edm.Int32"/>
+<Property Name="Vrouwen_3" Type="Edm.Int32"/>
+<Property Name="TotaleBevolking_4" Type="Edm.Int32"/>
+<Property Name="Ongehuwd_5" Type="Edm.Int32"/>
+<Property Name="Gehuwd_6" Type="Edm.Int32"/>
+<Property Name="Verweduwd_7" Type="Edm.Int32"/>
+<Property Name="Gescheiden_8" Type="Edm.Int32"/>
+<Property Name="TotaleBevolking_9" Type="Edm.Int32"/>
+<Property Name="JongerDan20Jaar_10" Type="Edm.Int32"/>
+<Property Name="k_20Tot40Jaar_11" Type="Edm.Int32"/>
+<Property Name="k_40Tot65Jaar_12" Type="Edm.Int32"/>
+<Property Name="k_65Tot80Jaar_13" Type="Edm.Int32"/>
+<Property Name="k_80JaarOfOuder_14" Type="Edm.Int32"/>
+<Property Name="JongerDan20Jaar_15" Type="Edm.Double"/>
+<Property Name="k_20Tot40Jaar_16" Type="Edm.Double"/>
+<Property Name="k_40Tot65Jaar_17" Type="Edm.Double"/>
+<Property Name="k_65Tot80Jaar_18" Type="Edm.Double"/>
+<Property Name="k_80JaarOfOuder_19" Type="Edm.Double"/>
+<Property Name="TotaleDruk_20" Type="Edm.Double"/>
+<Property Name="GroeneDruk_21" Type="Edm.Double"/>
+<Property Name="GrijzeDruk_22" Type="Edm.Double"/>
+<Property Name="TotaleBevolking_23" Type="Edm.Double"/>
+<Property Name="Mannen_24" Type="Edm.Double"/>
+<Property Name="Vrouwen_25" Type="Edm.Double"/>
+<Property Name="TotaleBevolking_26" Type="Edm.Int32"/>
+<Property Name="Nederland_27" Type="Edm.Int32"/>
+<Property Name="EuropaExclusiefNederland_28" Type="Edm.Int32"/>
+<Property Name="TotaalBuitenEuropa_29" Type="Edm.Int32"/>
+<Property Name="Turkije_30" Type="Edm.Int32"/>
+<Property Name="Marokko_31" Type="Edm.Int32"/>
+<Property Name="Suriname_32" Type="Edm.Int32"/>
+<Property Name="NederlandseCariben_33" Type="Edm.Int32"/>
+<Property Name="Indonesie_34" Type="Edm.Int32"/>
+<Property Name="OverigAfrika_35" Type="Edm.Int32"/>
+<Property Name="OverigAzie_36" Type="Edm.Int32"/>
+<Property Name="OverigAmerikaEnOceanie_37" Type="Edm.Int32"/>
+<Property Name="Nederland_38" Type="Edm.Int32"/>
+<Property Name="EuropaExclusiefNederland_39" Type="Edm.Int32"/>
+<Property Name="TotaalBuitenEuropa_40" Type="Edm.Int32"/>
+<Property Name="Turkije_41" Type="Edm.Int32"/>
+<Property Name="Marokko_42" Type="Edm.Int32"/>
+<Property Name="Suriname_43" Type="Edm.Int32"/>
+<Property Name="NederlandseCariben_44" Type="Edm.Int32"/>
+<Property Name="Indonesie_45" Type="Edm.Int32"/>
+<Property Name="OverigAfrika_46" Type="Edm.Int32"/>
+<Property Name="OverigAzie_47" Type="Edm.Int32"/>
+<Property Name="OverigAmerikaEnOceanie_48" Type="Edm.Int32"/>
+<Property Name="Nederland_49" Type="Edm.Int32"/>
+<Property Name="EuropaExclusiefNederland_50" Type="Edm.Int32"/>
+<Property Name="TotaalBuitenEuropa_51" Type="Edm.Int32"/>
+<Property Name="Turkije_52" Type="Edm.Int32"/>
+<Property Name="Marokko_53" Type="Edm.Int32"/>
+<Property Name="Suriname_54" Type="Edm.Int32"/>
+<Property Name="NederlandseCariben_55" Type="Edm.Int32"/>
+<Property Name="Indonesie_56" Type="Edm.Int32"/>
+<Property Name="OverigAfrika_57" Type="Edm.Int32"/>
+<Property Name="OverigAzie_58" Type="Edm.Int32"/>
+<Property Name="OverigAmerikaEnOceanie_59" Type="Edm.Int32"/>
+<Property Name="TotaalHuishoudens_60" Type="Edm.Int32"/>
+<Property Name="Eenpersoonshuishoudens_61" Type="Edm.Int32"/>
+<Property Name="Meerpersoonshuishoudens_62" Type="Edm.Int32"/>
+<Property Name="GemiddeldeHuishoudensgrootte_63" Type="Edm.Double"/>
+<Property Name="PersonenInInstitutioneleHuishoudens_64" Type="Edm.Int32"/>
+<Property Name="TotaleBevolkingsgroei_65" Type="Edm.Int32"/>
+<Property Name="TotaleBevolkingsgroeiRelatief_66" Type="Edm.Double"/>
+<Property Name="LevendGeborenKinderen_67" Type="Edm.Int32"/>
+<Property Name="Overledenen_68" Type="Edm.Int32"/>
+<Property Name="Geboorteoverschot_69" Type="Edm.Int32"/>
+<Property Name="GeboorteoverschotRelatief_70" Type="Edm.Double"/>
+<Property Name="Immigratie_71" Type="Edm.Int32"/>
+<Property Name="EmigratieInclusiefAdministratieveC_72" Type="Edm.Int32"/>
+<Property Name="MigratiesaldoInclusiefAdministratie_73" Type="Edm.Int32"/>
+<Property Name="MigratiesaldoInclusiefCoRelatief_74" Type="Edm.Double"/>
+<Property Name="OverigeCorrecties_75" Type="Edm.Int32"/>
+<Property Name="Bevolkingsdichtheid_76" Type="Edm.Int32"/>
+</EntityType>
+<EntityType Name="DimensionOrTopic" Abstract="true">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="Position" Type="Edm.Int32"/>
+<Property Name="ParentID" Type="Edm.Int32"/>
+<Property Name="Type" Type="Edm.String"/>
+<Property Name="Key" Type="Edm.String"/>
+<Property Name="Title" Type="Edm.String"/>
+<Property Name="Description" Type="Edm.String"/>
+</EntityType>
+<EntityType Name="Dimension" BaseType="Cbs.OData.DimensionOrTopic"/>
+<EntityType Name="GeoDimension" BaseType="Cbs.OData.DimensionOrTopic">
+<Property Name="MapYear" Type="Edm.Int32"/>
+</EntityType>
+<EntityType Name="GeoDetail" BaseType="Cbs.OData.DimensionOrTopic">
+<Property Name="MapYear" Type="Edm.Int32"/>
+</EntityType>
+<EntityType Name="TimeDimension" BaseType="Cbs.OData.DimensionOrTopic" OpenType="true">
+<Property Name="ReleasePolicy" Type="Edm.Boolean"/>
+</EntityType>
+<EntityType Name="Topic" BaseType="Cbs.OData.DimensionOrTopic">
+<Property Name="Datatype" Type="Edm.String"/>
+<Property Name="Unit" Type="Edm.String"/>
+<Property Name="Decimals" Type="Edm.Byte"/>
+<Property Name="Default" Type="Edm.String"/>
+</EntityType>
+<EntityType Name="TopicGroup" BaseType="Cbs.OData.DimensionOrTopic"/>
+<EntityType Name="CategoryGroup">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="ID" Type="Edm.Int32" Nullable="false"/>
+<Property Name="DimensionKey" Type="Edm.String"/>
+<Property Name="Title" Type="Edm.String"/>
+<Property Name="Description" Type="Edm.String"/>
+<Property Name="ParentID" Type="Edm.Int32"/>
+</EntityType>
+<EntityContainer Name="WebAPI">
+<EntitySet Name="TableInfos" EntityType="Cbs.OData.TableInfo"/>
+<EntitySet Name="UntypedDataSet" EntityType="Cbs.OData.UData"/>
+<EntitySet Name="TypedDataSet" EntityType="Cbs.OData.TData"/>
+<EntitySet Name="DataProperties" EntityType="Cbs.OData.DimensionOrTopic"/>
+<EntitySet Name="CategoryGroups" EntityType="Cbs.OData.CategoryGroup"/>
+<EntitySet Name="Perioden" EntityType="Cbs.OData.TimeCategory"/>
+</EntityContainer>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>
