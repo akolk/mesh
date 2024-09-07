@@ -6,6 +6,17 @@ serve:
   playgroundTitle: CBS Demo Playground
 
 sources:
+  - name: CBS
+    handler:
+      openapi:
+        source: ./cbsopenapi.json
+        endpoint: https://www.cbs.nl/odata/v1/
+        ignoreErrorResponses: true
+    transforms:
+      - prefix:
+          value: CBS
+          includeRootOperations: true
+
   - name: CBS85496NED
     handler:
       odata:
