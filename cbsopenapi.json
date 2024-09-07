@@ -1,0 +1,5259 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "OData Service for namespace CBS.Website.ODataApi.Models",
+    "description": "This OData service is located at https://www.cbs.nl/odata/v1",
+    "version": "1.1.1"
+  },
+  "servers": [
+    {
+      "url": "https://www.cbs.nl/odata/v1"
+    }
+  ],
+  "paths": {
+    "/Articles": {
+      "description": "Provides operations to manage the collection of Article entities.",
+      "get": {
+        "tags": [
+          "Articles.Article"
+        ],
+        "summary": "Get entities from Articles",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "UniqueId desc",
+                  "ArticleType",
+                  "ArticleType desc",
+                  "ArticleTypeInt",
+                  "ArticleTypeInt desc",
+                  "Title",
+                  "Title desc",
+                  "ReleaseTime",
+                  "ReleaseTime desc",
+                  "Url",
+                  "Url desc",
+                  "MetaDescription",
+                  "MetaDescription desc",
+                  "Image",
+                  "Image desc",
+                  "ImageAlt",
+                  "ImageAlt desc",
+                  "Category",
+                  "Category desc",
+                  "Photographer",
+                  "Photographer desc",
+                  "LeadText",
+                  "LeadText desc",
+                  "Body",
+                  "Body desc",
+                  "Footnote",
+                  "Footnote desc",
+                  "Errata",
+                  "Errata desc",
+                  "Authors",
+                  "Authors desc",
+                  "Location",
+                  "Location desc",
+                  "ISSN",
+                  "ISSN desc",
+                  "ISBN",
+                  "ISBN desc",
+                  "TaxonomyTags",
+                  "TaxonomyTags desc",
+                  "Themes",
+                  "Themes desc",
+                  "Series",
+                  "Series desc",
+                  "References",
+                  "References desc",
+                  "Downloads",
+                  "Downloads desc",
+                  "Links",
+                  "Links desc",
+                  "Language",
+                  "Language desc",
+                  "Version",
+                  "Version desc",
+                  "SortOrder",
+                  "SortOrder desc",
+                  "ItemNameLowerCase",
+                  "ItemNameLowerCase desc",
+                  "Updated",
+                  "Updated desc",
+                  "Created",
+                  "Created desc",
+                  "Permalink",
+                  "Permalink desc"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "ArticleType",
+                  "ArticleTypeInt",
+                  "Title",
+                  "ReleaseTime",
+                  "Url",
+                  "MetaDescription",
+                  "Image",
+                  "ImageAlt",
+                  "Category",
+                  "Photographer",
+                  "LeadText",
+                  "Body",
+                  "Footnote",
+                  "Errata",
+                  "Authors",
+                  "Location",
+                  "ISSN",
+                  "ISBN",
+                  "TaxonomyTags",
+                  "Themes",
+                  "Series",
+                  "References",
+                  "Downloads",
+                  "Links",
+                  "Language",
+                  "Version",
+                  "SortOrder",
+                  "ItemNameLowerCase",
+                  "Updated",
+                  "Created",
+                  "Permalink"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/CBS.Website.ODataApi.Models.ArticleCollectionResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/Articles({UniqueId})": {
+      "description": "Provides operations to manage the collection of Article entities.",
+      "get": {
+        "tags": [
+          "Articles.Article"
+        ],
+        "summary": "Get entity from Articles by key",
+        "parameters": [
+          {
+            "name": "UniqueId",
+            "in": "path",
+            "description": "The unique identifier of Article",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-docs-key-type": "Article"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "ArticleType",
+                  "ArticleTypeInt",
+                  "Title",
+                  "ReleaseTime",
+                  "Url",
+                  "MetaDescription",
+                  "Image",
+                  "ImageAlt",
+                  "Category",
+                  "Photographer",
+                  "LeadText",
+                  "Body",
+                  "Footnote",
+                  "Errata",
+                  "Authors",
+                  "Location",
+                  "ISSN",
+                  "ISBN",
+                  "TaxonomyTags",
+                  "Themes",
+                  "Series",
+                  "References",
+                  "Downloads",
+                  "Links",
+                  "Language",
+                  "Version",
+                  "SortOrder",
+                  "ItemNameLowerCase",
+                  "Updated",
+                  "Created",
+                  "Permalink"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Article"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "operation"
+      }
+    },
+    "/Definitions": {
+      "description": "Provides operations to manage the collection of Definition entities.",
+      "get": {
+        "tags": [
+          "Definitions.Definition"
+        ],
+        "summary": "Get entities from Definitions",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "UniqueId desc",
+                  "Title",
+                  "Title desc",
+                  "DefinitionType",
+                  "DefinitionType desc",
+                  "DefinitionTypeInt",
+                  "DefinitionTypeInt desc",
+                  "Description",
+                  "Description desc",
+                  "LeadText",
+                  "LeadText desc",
+                  "Url",
+                  "Url desc",
+                  "MetaDescription",
+                  "MetaDescription desc",
+                  "TaxonomyTags",
+                  "TaxonomyTags desc",
+                  "Themes",
+                  "Themes desc",
+                  "Series",
+                  "Series desc",
+                  "Language",
+                  "Language desc",
+                  "Version",
+                  "Version desc",
+                  "Updated",
+                  "Updated desc",
+                  "Created",
+                  "Created desc",
+                  "Permalink",
+                  "Permalink desc",
+                  "References",
+                  "References desc",
+                  "Links",
+                  "Links desc"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "Title",
+                  "DefinitionType",
+                  "DefinitionTypeInt",
+                  "Description",
+                  "LeadText",
+                  "Url",
+                  "MetaDescription",
+                  "TaxonomyTags",
+                  "Themes",
+                  "Series",
+                  "Language",
+                  "Version",
+                  "Updated",
+                  "Created",
+                  "Permalink",
+                  "References",
+                  "Links"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/CBS.Website.ODataApi.Models.DefinitionCollectionResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/Definitions({UniqueId})": {
+      "description": "Provides operations to manage the collection of Definition entities.",
+      "get": {
+        "tags": [
+          "Definitions.Definition"
+        ],
+        "summary": "Get entity from Definitions by key",
+        "parameters": [
+          {
+            "name": "UniqueId",
+            "in": "path",
+            "description": "The unique identifier of Definition",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-docs-key-type": "Definition"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "Title",
+                  "DefinitionType",
+                  "DefinitionTypeInt",
+                  "Description",
+                  "LeadText",
+                  "Url",
+                  "MetaDescription",
+                  "TaxonomyTags",
+                  "Themes",
+                  "Series",
+                  "Language",
+                  "Version",
+                  "Updated",
+                  "Created",
+                  "Permalink",
+                  "References",
+                  "Links"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Definition"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "operation"
+      }
+    },
+    "/Events": {
+      "description": "Provides operations to manage the collection of CalendarEvent entities.",
+      "get": {
+        "tags": [
+          "Events.CalendarEvent"
+        ],
+        "summary": "Get entities from Events",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "UniqueId desc",
+                  "Title",
+                  "Title desc",
+                  "Url",
+                  "Url desc",
+                  "MetaDescription",
+                  "MetaDescription desc",
+                  "Image",
+                  "Image desc",
+                  "ImageAlt",
+                  "ImageAlt desc",
+                  "Description",
+                  "Description desc",
+                  "PlannedPublicationTime",
+                  "PlannedPublicationTime desc",
+                  "ReportingPeriod",
+                  "ReportingPeriod desc",
+                  "Priority",
+                  "Priority desc",
+                  "UnderEmbargo",
+                  "UnderEmbargo desc",
+                  "PublishTimeUnknown",
+                  "PublishTimeUnknown desc",
+                  "RegionalClassification",
+                  "RegionalClassification desc",
+                  "Themes",
+                  "Themes desc",
+                  "Language",
+                  "Language desc",
+                  "Version",
+                  "Version desc",
+                  "SortOrder",
+                  "SortOrder desc",
+                  "ItemNameLowerCase",
+                  "ItemNameLowerCase desc",
+                  "Updated",
+                  "Updated desc",
+                  "Created",
+                  "Created desc",
+                  "Permalink",
+                  "Permalink desc"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "Title",
+                  "Url",
+                  "MetaDescription",
+                  "Image",
+                  "ImageAlt",
+                  "Description",
+                  "PlannedPublicationTime",
+                  "ReportingPeriod",
+                  "Priority",
+                  "UnderEmbargo",
+                  "PublishTimeUnknown",
+                  "RegionalClassification",
+                  "Themes",
+                  "Language",
+                  "Version",
+                  "SortOrder",
+                  "ItemNameLowerCase",
+                  "Updated",
+                  "Created",
+                  "Permalink"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/CBS.Website.ODataApi.Models.CalendarEventCollectionResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/Events({UniqueId})": {
+      "description": "Provides operations to manage the collection of CalendarEvent entities.",
+      "get": {
+        "tags": [
+          "Events.CalendarEvent"
+        ],
+        "summary": "Get entity from Events by key",
+        "parameters": [
+          {
+            "name": "UniqueId",
+            "in": "path",
+            "description": "The unique identifier of CalendarEvent",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-docs-key-type": "CalendarEvent"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "Title",
+                  "Url",
+                  "MetaDescription",
+                  "Image",
+                  "ImageAlt",
+                  "Description",
+                  "PlannedPublicationTime",
+                  "ReportingPeriod",
+                  "Priority",
+                  "UnderEmbargo",
+                  "PublishTimeUnknown",
+                  "RegionalClassification",
+                  "Themes",
+                  "Language",
+                  "Version",
+                  "SortOrder",
+                  "ItemNameLowerCase",
+                  "Updated",
+                  "Created",
+                  "Permalink"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.CalendarEvent"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "operation"
+      }
+    },
+    "/Flash": {
+      "description": "Provides operations to manage the collection of Flash entities.",
+      "get": {
+        "tags": [
+          "Flash.Flash"
+        ],
+        "summary": "Get entities from Flash",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "UniqueId desc",
+                  "Title",
+                  "Title desc",
+                  "ReleaseTime",
+                  "ReleaseTime desc",
+                  "Description",
+                  "Description desc",
+                  "LeadText",
+                  "LeadText desc",
+                  "Url",
+                  "Url desc",
+                  "MetaDescription",
+                  "MetaDescription desc",
+                  "Language",
+                  "Language desc",
+                  "Version",
+                  "Version desc",
+                  "SortOrder",
+                  "SortOrder desc",
+                  "ItemNameLowerCase",
+                  "ItemNameLowerCase desc",
+                  "Updated",
+                  "Updated desc",
+                  "Created",
+                  "Created desc"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "Title",
+                  "ReleaseTime",
+                  "Description",
+                  "LeadText",
+                  "Url",
+                  "MetaDescription",
+                  "Language",
+                  "Version",
+                  "SortOrder",
+                  "ItemNameLowerCase",
+                  "Updated",
+                  "Created"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/CBS.Website.ODataApi.Models.FlashCollectionResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/Flash({UniqueId})": {
+      "description": "Provides operations to manage the collection of Flash entities.",
+      "get": {
+        "tags": [
+          "Flash.Flash"
+        ],
+        "summary": "Get entity from Flash by key",
+        "parameters": [
+          {
+            "name": "UniqueId",
+            "in": "path",
+            "description": "The unique identifier of Flash",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-docs-key-type": "Flash"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "Title",
+                  "ReleaseTime",
+                  "Description",
+                  "LeadText",
+                  "Url",
+                  "MetaDescription",
+                  "Language",
+                  "Version",
+                  "SortOrder",
+                  "ItemNameLowerCase",
+                  "Updated",
+                  "Created"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Flash"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "operation"
+      }
+    },
+    "/GetArticlesByArticleType(ArticleType={ArticleType})": {
+      "description": "Provides operations to call the GetArticlesByArticleType method.",
+      "get": {
+        "tags": [
+          "Articles"
+        ],
+        "summary": "Invoke functionImport GetArticlesByArticleType",
+        "parameters": [
+          {
+            "name": "ArticleType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.ArticleType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of Article",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Article"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetArticlesBySeries(Series={Series})": {
+      "description": "Provides operations to call the GetArticlesBySeries method.",
+      "get": {
+        "tags": [
+          "Articles"
+        ],
+        "summary": "Invoke functionImport GetArticlesBySeries",
+        "parameters": [
+          {
+            "name": "Series",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of Article",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Article"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetArticlesByTableId(TableId={TableId})": {
+      "description": "Provides operations to call the GetArticlesByTableId method.",
+      "get": {
+        "tags": [
+          "Articles"
+        ],
+        "summary": "Invoke functionImport GetArticlesByTableId",
+        "parameters": [
+          {
+            "name": "TableId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of Article",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Article"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetArticlesByTaxonomyTag(Tag={Tag})": {
+      "description": "Provides operations to call the GetArticlesByTaxonomyTag method.",
+      "get": {
+        "tags": [
+          "Articles"
+        ],
+        "summary": "Invoke functionImport GetArticlesByTaxonomyTag",
+        "parameters": [
+          {
+            "name": "Tag",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of Article",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Article"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetArticlesByTheme(Theme={Theme})": {
+      "description": "Provides operations to call the GetArticlesByTheme method.",
+      "get": {
+        "tags": [
+          "Articles"
+        ],
+        "summary": "Invoke functionImport GetArticlesByTheme",
+        "parameters": [
+          {
+            "name": "Theme",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of Article",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Article"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetMediaByMediaType(MediaType={MediaType})": {
+      "description": "Provides operations to call the GetMediaByMediaType method.",
+      "get": {
+        "tags": [
+          "Media"
+        ],
+        "summary": "Invoke functionImport GetMediaByMediaType",
+        "parameters": [
+          {
+            "name": "MediaType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.MediaType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of Medium",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Medium"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetPagesByPageType(PageType={PageType})": {
+      "description": "Provides operations to call the GetPagesByPageType method.",
+      "get": {
+        "tags": [
+          "Pages"
+        ],
+        "summary": "Invoke functionImport GetPagesByPageType",
+        "parameters": [
+          {
+            "name": "PageType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.PageType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of Page",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Page"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetPagesByResearchCode(ResourceCode={ResourceCode})": {
+      "description": "Provides operations to call the GetPagesByResearchCode method.",
+      "get": {
+        "tags": [
+          "Pages"
+        ],
+        "summary": "Invoke functionImport GetPagesByResearchCode",
+        "parameters": [
+          {
+            "name": "ResourceCode",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of Page",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Page"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetPagesBySeries(Series={Series})": {
+      "description": "Provides operations to call the GetPagesBySeries method.",
+      "get": {
+        "tags": [
+          "Pages"
+        ],
+        "summary": "Invoke functionImport GetPagesBySeries",
+        "parameters": [
+          {
+            "name": "Series",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of Page",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Page"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetPagesByTaxonomyTag(Tag={Tag})": {
+      "description": "Provides operations to call the GetPagesByTaxonomyTag method.",
+      "get": {
+        "tags": [
+          "Pages"
+        ],
+        "summary": "Invoke functionImport GetPagesByTaxonomyTag",
+        "parameters": [
+          {
+            "name": "Tag",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of Page",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Page"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetPagesByTheme(Theme={Theme})": {
+      "description": "Provides operations to call the GetPagesByTheme method.",
+      "get": {
+        "tags": [
+          "Pages"
+        ],
+        "summary": "Invoke functionImport GetPagesByTheme",
+        "parameters": [
+          {
+            "name": "Theme",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of Page",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Page"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetSearchResultsByArticleType(ArticleType={ArticleType})": {
+      "description": "Provides operations to call the GetSearchResultsByArticleType method.",
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Invoke functionImport GetSearchResultsByArticleType",
+        "parameters": [
+          {
+            "name": "ArticleType",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.ArticleType"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of SearchResultItem",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.SearchResultItem"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetSearchResultsByPath(Path={Path})": {
+      "description": "Provides operations to call the GetSearchResultsByPath method.",
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Invoke functionImport GetSearchResultsByPath",
+        "parameters": [
+          {
+            "name": "Path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of SearchResultItem",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.SearchResultItem"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetSearchResultsByPathAndTemplateId(Path={Path},TemplateId={TemplateId})": {
+      "description": "Provides operations to call the GetSearchResultsByPathAndTemplateId method.",
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Invoke functionImport GetSearchResultsByPathAndTemplateId",
+        "parameters": [
+          {
+            "name": "Path",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "TemplateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of SearchResultItem",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.SearchResultItem"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetSearchResultsByTemplate(Template={Template})": {
+      "description": "Provides operations to call the GetSearchResultsByTemplate method.",
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Invoke functionImport GetSearchResultsByTemplate",
+        "parameters": [
+          {
+            "name": "Template",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of SearchResultItem",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.SearchResultItem"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetSearchResultsByTheme(Theme={Theme})": {
+      "description": "Provides operations to call the GetSearchResultsByTheme method.",
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Invoke functionImport GetSearchResultsByTheme",
+        "parameters": [
+          {
+            "name": "Theme",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of SearchResultItem",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.SearchResultItem"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetSearchResultsByWord(Word={Word})": {
+      "description": "Provides operations to call the GetSearchResultsByWord method.",
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Invoke functionImport GetSearchResultsByWord",
+        "parameters": [
+          {
+            "name": "Word",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of SearchResultItem",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.SearchResultItem"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/GetSearchResultsByWordAndTemplateId(Word={Word},TemplateId={TemplateId})": {
+      "description": "Provides operations to call the GetSearchResultsByWordAndTemplateId method.",
+      "get": {
+        "tags": [
+          "Search"
+        ],
+        "summary": "Invoke functionImport GetSearchResultsByWordAndTemplateId",
+        "parameters": [
+          {
+            "name": "Word",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          {
+            "name": "TemplateId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "nullable": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Collection of SearchResultItem",
+                  "type": "object",
+                  "properties": {
+                    "value": {
+                      "type": "array",
+                      "items": {
+                        "anyOf": [
+                          {
+                            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.SearchResultItem"
+                          },
+                          {
+                            "type": "object",
+                            "nullable": true
+                          }
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "functionImport"
+      }
+    },
+    "/Media": {
+      "description": "Provides operations to manage the collection of Medium entities.",
+      "get": {
+        "tags": [
+          "Media.Medium"
+        ],
+        "summary": "Get entities from Media",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "UniqueId desc",
+                  "Title",
+                  "Title desc",
+                  "MediaType",
+                  "MediaType desc",
+                  "MediaTypeInt",
+                  "MediaTypeInt desc",
+                  "ReleaseTime",
+                  "ReleaseTime desc",
+                  "Description",
+                  "Description desc",
+                  "LeadText",
+                  "LeadText desc",
+                  "Url",
+                  "Url desc",
+                  "MetaDescription",
+                  "MetaDescription desc",
+                  "TaxonomyTags",
+                  "TaxonomyTags desc",
+                  "Themes",
+                  "Themes desc",
+                  "Series",
+                  "Series desc",
+                  "Language",
+                  "Language desc",
+                  "Version",
+                  "Version desc",
+                  "SortOrder",
+                  "SortOrder desc",
+                  "ItemNameLowerCase",
+                  "ItemNameLowerCase desc",
+                  "Updated",
+                  "Updated desc",
+                  "Created",
+                  "Created desc",
+                  "Permalink",
+                  "Permalink desc"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "Title",
+                  "MediaType",
+                  "MediaTypeInt",
+                  "ReleaseTime",
+                  "Description",
+                  "LeadText",
+                  "Url",
+                  "MetaDescription",
+                  "TaxonomyTags",
+                  "Themes",
+                  "Series",
+                  "Language",
+                  "Version",
+                  "SortOrder",
+                  "ItemNameLowerCase",
+                  "Updated",
+                  "Created",
+                  "Permalink"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/CBS.Website.ODataApi.Models.MediumCollectionResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/Media({UniqueId})": {
+      "description": "Provides operations to manage the collection of Medium entities.",
+      "get": {
+        "tags": [
+          "Media.Medium"
+        ],
+        "summary": "Get entity from Media by key",
+        "parameters": [
+          {
+            "name": "UniqueId",
+            "in": "path",
+            "description": "The unique identifier of Medium",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-docs-key-type": "Medium"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "Title",
+                  "MediaType",
+                  "MediaTypeInt",
+                  "ReleaseTime",
+                  "Description",
+                  "LeadText",
+                  "Url",
+                  "MetaDescription",
+                  "TaxonomyTags",
+                  "Themes",
+                  "Series",
+                  "Language",
+                  "Version",
+                  "SortOrder",
+                  "ItemNameLowerCase",
+                  "Updated",
+                  "Created",
+                  "Permalink"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Medium"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "operation"
+      }
+    },
+    "/Pages": {
+      "description": "Provides operations to manage the collection of Page entities.",
+      "get": {
+        "tags": [
+          "Pages.Page"
+        ],
+        "summary": "Get entities from Pages",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "UniqueId desc",
+                  "PageType",
+                  "PageType desc",
+                  "PageTypeInt",
+                  "PageTypeInt desc",
+                  "Title",
+                  "Title desc",
+                  "SubTitle",
+                  "SubTitle desc",
+                  "Edition",
+                  "Edition desc",
+                  "Url",
+                  "Url desc",
+                  "MetaDescription",
+                  "MetaDescription desc",
+                  "Image",
+                  "Image desc",
+                  "ImageAlt",
+                  "ImageAlt desc",
+                  "Category",
+                  "Category desc",
+                  "Photographer",
+                  "Photographer desc",
+                  "LeadText",
+                  "LeadText desc",
+                  "Body",
+                  "Body desc",
+                  "Footnote",
+                  "Footnote desc",
+                  "Authors",
+                  "Authors desc",
+                  "Location",
+                  "Location desc",
+                  "TaxonomyTags",
+                  "TaxonomyTags desc",
+                  "Themes",
+                  "Themes desc",
+                  "Series",
+                  "Series desc",
+                  "ResearchCodes",
+                  "ResearchCodes desc",
+                  "References",
+                  "References desc",
+                  "Downloads",
+                  "Downloads desc",
+                  "Links",
+                  "Links desc",
+                  "Language",
+                  "Language desc",
+                  "Version",
+                  "Version desc",
+                  "SortOrder",
+                  "SortOrder desc",
+                  "ItemNameLowerCase",
+                  "ItemNameLowerCase desc",
+                  "Updated",
+                  "Updated desc",
+                  "ReleaseTime",
+                  "ReleaseTime desc",
+                  "Created",
+                  "Created desc",
+                  "Permalink",
+                  "Permalink desc"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "PageType",
+                  "PageTypeInt",
+                  "Title",
+                  "SubTitle",
+                  "Edition",
+                  "Url",
+                  "MetaDescription",
+                  "Image",
+                  "ImageAlt",
+                  "Category",
+                  "Photographer",
+                  "LeadText",
+                  "Body",
+                  "Footnote",
+                  "Authors",
+                  "Location",
+                  "TaxonomyTags",
+                  "Themes",
+                  "Series",
+                  "ResearchCodes",
+                  "References",
+                  "Downloads",
+                  "Links",
+                  "Language",
+                  "Version",
+                  "SortOrder",
+                  "ItemNameLowerCase",
+                  "Updated",
+                  "ReleaseTime",
+                  "Created",
+                  "Permalink"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/CBS.Website.ODataApi.Models.PageCollectionResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/Pages({UniqueId})": {
+      "description": "Provides operations to manage the collection of Page entities.",
+      "get": {
+        "tags": [
+          "Pages.Page"
+        ],
+        "summary": "Get entity from Pages by key",
+        "parameters": [
+          {
+            "name": "UniqueId",
+            "in": "path",
+            "description": "The unique identifier of Page",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-docs-key-type": "Page"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "PageType",
+                  "PageTypeInt",
+                  "Title",
+                  "SubTitle",
+                  "Edition",
+                  "Url",
+                  "MetaDescription",
+                  "Image",
+                  "ImageAlt",
+                  "Category",
+                  "Photographer",
+                  "LeadText",
+                  "Body",
+                  "Footnote",
+                  "Authors",
+                  "Location",
+                  "TaxonomyTags",
+                  "Themes",
+                  "Series",
+                  "ResearchCodes",
+                  "References",
+                  "Downloads",
+                  "Links",
+                  "Language",
+                  "Version",
+                  "SortOrder",
+                  "ItemNameLowerCase",
+                  "Updated",
+                  "ReleaseTime",
+                  "Created",
+                  "Permalink"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Page"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "operation"
+      }
+    },
+    "/Search": {
+      "description": "Provides operations to manage the collection of SearchResultItem entities.",
+      "get": {
+        "tags": [
+          "Search.SearchResultItem"
+        ],
+        "summary": "Get entities from Search",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "UniqueId desc",
+                  "Type",
+                  "Type desc",
+                  "Permalink",
+                  "Permalink desc",
+                  "Title",
+                  "Title desc",
+                  "ReleaseTime",
+                  "ReleaseTime desc",
+                  "Url",
+                  "Url desc",
+                  "MetaDescription",
+                  "MetaDescription desc",
+                  "Image",
+                  "Image desc",
+                  "ImageAlt",
+                  "ImageAlt desc",
+                  "Description",
+                  "Description desc",
+                  "LeadText",
+                  "LeadText desc",
+                  "Body",
+                  "Body desc",
+                  "Snippet",
+                  "Snippet desc",
+                  "Location",
+                  "Location desc",
+                  "Language",
+                  "Language desc",
+                  "Themes",
+                  "Themes desc",
+                  "TemplateName",
+                  "TemplateName desc",
+                  "ItemNameLowerCase",
+                  "ItemNameLowerCase desc",
+                  "SortOrder",
+                  "SortOrder desc"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "Type",
+                  "Permalink",
+                  "Title",
+                  "ReleaseTime",
+                  "Url",
+                  "MetaDescription",
+                  "Image",
+                  "ImageAlt",
+                  "Description",
+                  "LeadText",
+                  "Body",
+                  "Snippet",
+                  "Location",
+                  "Language",
+                  "Themes",
+                  "TemplateName",
+                  "ItemNameLowerCase",
+                  "SortOrder"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/CBS.Website.ODataApi.Models.SearchResultItemCollectionResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/Search({UniqueId})": {
+      "description": "Provides operations to manage the collection of SearchResultItem entities.",
+      "get": {
+        "tags": [
+          "Search.SearchResultItem"
+        ],
+        "summary": "Get entity from Search by key",
+        "parameters": [
+          {
+            "name": "UniqueId",
+            "in": "path",
+            "description": "The unique identifier of SearchResultItem",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-docs-key-type": "SearchResultItem"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "Type",
+                  "Permalink",
+                  "Title",
+                  "ReleaseTime",
+                  "Url",
+                  "MetaDescription",
+                  "Image",
+                  "ImageAlt",
+                  "Description",
+                  "LeadText",
+                  "Body",
+                  "Snippet",
+                  "Location",
+                  "Language",
+                  "Themes",
+                  "TemplateName",
+                  "ItemNameLowerCase",
+                  "SortOrder"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.SearchResultItem"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "operation"
+      }
+    },
+    "/Vacancies": {
+      "description": "Provides operations to manage the collection of Vacancy entities.",
+      "get": {
+        "tags": [
+          "Vacancies.Vacancy"
+        ],
+        "summary": "Get entities from Vacancies",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "$ref": "#/components/parameters/filter"
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "UniqueId desc",
+                  "Title",
+                  "Title desc",
+                  "Url",
+                  "Url desc",
+                  "MetaDescription",
+                  "MetaDescription desc",
+                  "Image",
+                  "Image desc",
+                  "ImageAlt",
+                  "ImageAlt desc",
+                  "LeadText",
+                  "LeadText desc",
+                  "Body",
+                  "Body desc",
+                  "VacancyNumber",
+                  "VacancyNumber desc",
+                  "WorkingEnvironment",
+                  "WorkingEnvironment desc",
+                  "TheWork",
+                  "TheWork desc",
+                  "YourProfile",
+                  "YourProfile desc",
+                  "TermsOfEmployment",
+                  "TermsOfEmployment desc",
+                  "EmploymentType",
+                  "EmploymentType desc",
+                  "MoreInformation",
+                  "MoreInformation desc",
+                  "PublicationDate",
+                  "PublicationDate desc",
+                  "ClosingDate",
+                  "ClosingDate desc",
+                  "Engagement",
+                  "Engagement desc",
+                  "VacancyCategory",
+                  "VacancyCategory desc",
+                  "HoursPerWeek",
+                  "HoursPerWeek desc",
+                  "Salary",
+                  "Salary desc",
+                  "MinSalary",
+                  "MinSalary desc",
+                  "MaxSalary",
+                  "MaxSalary desc",
+                  "SalaryPeriod",
+                  "SalaryPeriod desc",
+                  "Recruiter",
+                  "Recruiter desc",
+                  "LevelOfEducation",
+                  "LevelOfEducation desc",
+                  "JobLocations",
+                  "JobLocations desc",
+                  "WorkLocation",
+                  "WorkLocation desc",
+                  "Location",
+                  "Location desc",
+                  "References",
+                  "References desc",
+                  "Downloads",
+                  "Downloads desc",
+                  "Links",
+                  "Links desc",
+                  "Language",
+                  "Language desc",
+                  "Version",
+                  "Version desc",
+                  "SortOrder",
+                  "SortOrder desc",
+                  "ItemNameLowerCase",
+                  "ItemNameLowerCase desc",
+                  "Updated",
+                  "Updated desc",
+                  "Created",
+                  "Created desc",
+                  "Permalink",
+                  "Permalink desc",
+                  "TeamFacts",
+                  "TeamFacts desc",
+                  "CbsFacts",
+                  "CbsFacts desc",
+                  "BreadCrumb",
+                  "BreadCrumb desc"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "Title",
+                  "Url",
+                  "MetaDescription",
+                  "Image",
+                  "ImageAlt",
+                  "LeadText",
+                  "Body",
+                  "VacancyNumber",
+                  "WorkingEnvironment",
+                  "TheWork",
+                  "YourProfile",
+                  "TermsOfEmployment",
+                  "EmploymentType",
+                  "MoreInformation",
+                  "PublicationDate",
+                  "ClosingDate",
+                  "Engagement",
+                  "VacancyCategory",
+                  "HoursPerWeek",
+                  "Salary",
+                  "MinSalary",
+                  "MaxSalary",
+                  "SalaryPeriod",
+                  "Recruiter",
+                  "LevelOfEducation",
+                  "JobLocations",
+                  "WorkLocation",
+                  "Location",
+                  "References",
+                  "Downloads",
+                  "Links",
+                  "Language",
+                  "Version",
+                  "SortOrder",
+                  "ItemNameLowerCase",
+                  "Updated",
+                  "Created",
+                  "Permalink",
+                  "TeamFacts",
+                  "CbsFacts",
+                  "BreadCrumb"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "$ref": "#/components/responses/CBS.Website.ODataApi.Models.VacancyCollectionResponse"
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/Vacancies({UniqueId})": {
+      "description": "Provides operations to manage the collection of Vacancy entities.",
+      "get": {
+        "tags": [
+          "Vacancies.Vacancy"
+        ],
+        "summary": "Get entity from Vacancies by key",
+        "parameters": [
+          {
+            "name": "UniqueId",
+            "in": "path",
+            "description": "The unique identifier of Vacancy",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "x-ms-docs-key-type": "Vacancy"
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "UniqueId",
+                  "Title",
+                  "Url",
+                  "MetaDescription",
+                  "Image",
+                  "ImageAlt",
+                  "LeadText",
+                  "Body",
+                  "VacancyNumber",
+                  "WorkingEnvironment",
+                  "TheWork",
+                  "YourProfile",
+                  "TermsOfEmployment",
+                  "EmploymentType",
+                  "MoreInformation",
+                  "PublicationDate",
+                  "ClosingDate",
+                  "Engagement",
+                  "VacancyCategory",
+                  "HoursPerWeek",
+                  "Salary",
+                  "MinSalary",
+                  "MaxSalary",
+                  "SalaryPeriod",
+                  "Recruiter",
+                  "LevelOfEducation",
+                  "JobLocations",
+                  "WorkLocation",
+                  "Location",
+                  "References",
+                  "Downloads",
+                  "Links",
+                  "Language",
+                  "Version",
+                  "SortOrder",
+                  "ItemNameLowerCase",
+                  "Updated",
+                  "Created",
+                  "Permalink",
+                  "TeamFacts",
+                  "CbsFacts",
+                  "BreadCrumb"
+                ],
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities",
+            "style": "form",
+            "explode": false,
+            "schema": {
+              "uniqueItems": true,
+              "type": "array",
+              "items": {
+                "enum": [
+                  "*"
+                ],
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Vacancy"
+                }
+              }
+            }
+          },
+          "default": {
+            "$ref": "#/components/responses/error"
+          }
+        },
+        "x-ms-docs-operation-type": "operation"
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CBS.Website.ODataApi.Models.Article": {
+        "title": "Article",
+        "type": "object",
+        "properties": {
+          "UniqueId": {
+            "type": "string"
+          },
+          "ArticleType": {
+            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.ArticleType"
+          },
+          "ArticleTypeInt": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "ReleaseTime": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Url": {
+            "type": "string",
+            "nullable": true
+          },
+          "MetaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "Image": {
+            "type": "string",
+            "nullable": true
+          },
+          "ImageAlt": {
+            "type": "string",
+            "nullable": true
+          },
+          "Category": {
+            "type": "string",
+            "nullable": true
+          },
+          "Photographer": {
+            "type": "string",
+            "nullable": true
+          },
+          "LeadText": {
+            "type": "string",
+            "nullable": true
+          },
+          "Body": {
+            "type": "string",
+            "nullable": true
+          },
+          "Footnote": {
+            "type": "string",
+            "nullable": true
+          },
+          "Errata": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.ErrataList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "Authors": {
+            "type": "string",
+            "nullable": true
+          },
+          "Location": {
+            "type": "string",
+            "nullable": true
+          },
+          "ISSN": {
+            "type": "string",
+            "nullable": true
+          },
+          "ISBN": {
+            "type": "string",
+            "nullable": true
+          },
+          "TaxonomyTags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "Themes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "Series": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "References": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.LinkList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "Downloads": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.LinkList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "Links": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.LinkList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "Language": {
+            "type": "string",
+            "nullable": true
+          },
+          "Version": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "SortOrder": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "ItemNameLowerCase": {
+            "type": "string",
+            "nullable": true
+          },
+          "Updated": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Created": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Permalink": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.Definition": {
+        "title": "Definition",
+        "type": "object",
+        "properties": {
+          "UniqueId": {
+            "type": "string"
+          },
+          "Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "DefinitionType": {
+            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.DefinitionType"
+          },
+          "DefinitionTypeInt": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "LeadText": {
+            "type": "string",
+            "nullable": true
+          },
+          "Url": {
+            "type": "string",
+            "nullable": true
+          },
+          "MetaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "TaxonomyTags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "Themes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "Series": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "Language": {
+            "type": "string",
+            "nullable": true
+          },
+          "Version": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "Updated": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Created": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Permalink": {
+            "type": "string",
+            "nullable": true
+          },
+          "References": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.LinkList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "Links": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.LinkList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.Medium": {
+        "title": "Medium",
+        "type": "object",
+        "properties": {
+          "UniqueId": {
+            "type": "string"
+          },
+          "Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "MediaType": {
+            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.MediaType"
+          },
+          "MediaTypeInt": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "ReleaseTime": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "LeadText": {
+            "type": "string",
+            "nullable": true
+          },
+          "Url": {
+            "type": "string",
+            "nullable": true
+          },
+          "MetaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "TaxonomyTags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "Themes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "Series": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "Language": {
+            "type": "string",
+            "nullable": true
+          },
+          "Version": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "SortOrder": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "ItemNameLowerCase": {
+            "type": "string",
+            "nullable": true
+          },
+          "Updated": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Created": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Permalink": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.CalendarEvent": {
+        "title": "CalendarEvent",
+        "type": "object",
+        "properties": {
+          "UniqueId": {
+            "type": "string"
+          },
+          "Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "Url": {
+            "type": "string",
+            "nullable": true
+          },
+          "MetaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "Image": {
+            "type": "string",
+            "nullable": true
+          },
+          "ImageAlt": {
+            "type": "string",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "PlannedPublicationTime": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "ReportingPeriod": {
+            "type": "string",
+            "nullable": true
+          },
+          "Priority": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "UnderEmbargo": {
+            "type": "boolean"
+          },
+          "PublishTimeUnknown": {
+            "type": "boolean"
+          },
+          "RegionalClassification": {
+            "type": "string",
+            "nullable": true
+          },
+          "Themes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "Language": {
+            "type": "string",
+            "nullable": true
+          },
+          "Version": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "SortOrder": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "ItemNameLowerCase": {
+            "type": "string",
+            "nullable": true
+          },
+          "Updated": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Created": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Permalink": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.Flash": {
+        "title": "Flash",
+        "type": "object",
+        "properties": {
+          "UniqueId": {
+            "type": "string"
+          },
+          "Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "ReleaseTime": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "LeadText": {
+            "type": "string",
+            "nullable": true
+          },
+          "Url": {
+            "type": "string",
+            "nullable": true
+          },
+          "MetaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "Language": {
+            "type": "string",
+            "nullable": true
+          },
+          "Version": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "SortOrder": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "ItemNameLowerCase": {
+            "type": "string",
+            "nullable": true
+          },
+          "Updated": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Created": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.Page": {
+        "title": "Page",
+        "type": "object",
+        "properties": {
+          "UniqueId": {
+            "type": "string"
+          },
+          "PageType": {
+            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.PageType"
+          },
+          "PageTypeInt": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "SubTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "Edition": {
+            "type": "string",
+            "nullable": true
+          },
+          "Url": {
+            "type": "string",
+            "nullable": true
+          },
+          "MetaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "Image": {
+            "type": "string",
+            "nullable": true
+          },
+          "ImageAlt": {
+            "type": "string",
+            "nullable": true
+          },
+          "Category": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "Photographer": {
+            "type": "string",
+            "nullable": true
+          },
+          "LeadText": {
+            "type": "string",
+            "nullable": true
+          },
+          "Body": {
+            "type": "string",
+            "nullable": true
+          },
+          "Footnote": {
+            "type": "string",
+            "nullable": true
+          },
+          "Authors": {
+            "type": "string",
+            "nullable": true
+          },
+          "Location": {
+            "type": "string",
+            "nullable": true
+          },
+          "TaxonomyTags": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "Themes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "Series": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "ResearchCodes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "References": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.LinkList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "Downloads": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.LinkList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "Links": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.LinkList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "Language": {
+            "type": "string",
+            "nullable": true
+          },
+          "Version": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "SortOrder": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "ItemNameLowerCase": {
+            "type": "string",
+            "nullable": true
+          },
+          "Updated": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "ReleaseTime": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Created": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Permalink": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.SearchResultItem": {
+        "title": "SearchResultItem",
+        "type": "object",
+        "properties": {
+          "UniqueId": {
+            "type": "string"
+          },
+          "Type": {
+            "type": "string",
+            "nullable": true
+          },
+          "Permalink": {
+            "type": "string",
+            "nullable": true
+          },
+          "Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "ReleaseTime": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Url": {
+            "type": "string",
+            "nullable": true
+          },
+          "MetaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "Image": {
+            "type": "string",
+            "nullable": true
+          },
+          "ImageAlt": {
+            "type": "string",
+            "nullable": true
+          },
+          "Description": {
+            "type": "string",
+            "nullable": true
+          },
+          "LeadText": {
+            "type": "string",
+            "nullable": true
+          },
+          "Body": {
+            "type": "string",
+            "nullable": true
+          },
+          "Snippet": {
+            "type": "string",
+            "nullable": true
+          },
+          "Location": {
+            "type": "string",
+            "nullable": true
+          },
+          "Language": {
+            "type": "string",
+            "nullable": true
+          },
+          "Themes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "TemplateName": {
+            "type": "string",
+            "nullable": true
+          },
+          "ItemNameLowerCase": {
+            "type": "string",
+            "nullable": true
+          },
+          "SortOrder": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.Vacancy": {
+        "title": "Vacancy",
+        "type": "object",
+        "properties": {
+          "UniqueId": {
+            "type": "string"
+          },
+          "Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "Url": {
+            "type": "string",
+            "nullable": true
+          },
+          "MetaDescription": {
+            "type": "string",
+            "nullable": true
+          },
+          "Image": {
+            "type": "string",
+            "nullable": true
+          },
+          "ImageAlt": {
+            "type": "string",
+            "nullable": true
+          },
+          "LeadText": {
+            "type": "string",
+            "nullable": true
+          },
+          "Body": {
+            "type": "string",
+            "nullable": true
+          },
+          "VacancyNumber": {
+            "type": "string",
+            "nullable": true
+          },
+          "WorkingEnvironment": {
+            "type": "string",
+            "nullable": true
+          },
+          "TheWork": {
+            "type": "string",
+            "nullable": true
+          },
+          "YourProfile": {
+            "type": "string",
+            "nullable": true
+          },
+          "TermsOfEmployment": {
+            "type": "string",
+            "nullable": true
+          },
+          "EmploymentType": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "MoreInformation": {
+            "type": "string",
+            "nullable": true
+          },
+          "PublicationDate": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "ClosingDate": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Engagement": {
+            "type": "string",
+            "nullable": true
+          },
+          "VacancyCategory": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "HoursPerWeek": {
+            "type": "string",
+            "nullable": true
+          },
+          "Salary": {
+            "type": "string",
+            "nullable": true
+          },
+          "MinSalary": {
+            "oneOf": [
+              {
+                "type": "number",
+                "format": "double"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceNumeric"
+              }
+            ]
+          },
+          "MaxSalary": {
+            "oneOf": [
+              {
+                "type": "number",
+                "format": "double"
+              },
+              {
+                "type": "string"
+              },
+              {
+                "$ref": "#/components/schemas/ReferenceNumeric"
+              }
+            ]
+          },
+          "SalaryPeriod": {
+            "type": "string",
+            "nullable": true
+          },
+          "Recruiter": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Person"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "LevelOfEducation": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "JobLocations": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.JobLocationList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "WorkLocation": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "nullable": true
+            }
+          },
+          "Location": {
+            "type": "string",
+            "nullable": true
+          },
+          "References": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.LinkList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "Downloads": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.LinkList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "Links": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.LinkList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "Language": {
+            "type": "string",
+            "nullable": true
+          },
+          "Version": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "SortOrder": {
+            "maximum": 2147483647,
+            "minimum": -2147483648,
+            "type": "integer",
+            "format": "int32"
+          },
+          "ItemNameLowerCase": {
+            "type": "string",
+            "nullable": true
+          },
+          "Updated": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Created": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Permalink": {
+            "type": "string",
+            "nullable": true
+          },
+          "TeamFacts": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.TeamFactList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "CbsFacts": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.CbsFactList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          },
+          "BreadCrumb": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.LinkList"
+              },
+              {
+                "type": "object",
+                "nullable": true
+              }
+            ]
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.ErrataList": {
+        "title": "ErrataList",
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.ErratumItem"
+                },
+                {
+                  "type": "object",
+                  "nullable": true
+                }
+              ]
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.ErratumItem": {
+        "title": "ErratumItem",
+        "type": "object",
+        "properties": {
+          "PresentationTime": {
+            "pattern": "^[0-9]{4,}-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,12})?(Z|[+-][0-9][0-9]:[0-9][0-9])$",
+            "type": "string",
+            "format": "date-time"
+          },
+          "Body": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.LinkList": {
+        "title": "LinkList",
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Link"
+                },
+                {
+                  "type": "object",
+                  "nullable": true
+                }
+              ]
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.Link": {
+        "title": "Link",
+        "type": "object",
+        "properties": {
+          "Text": {
+            "type": "string",
+            "nullable": true
+          },
+          "Url": {
+            "type": "string",
+            "nullable": true
+          },
+          "Prefix": {
+            "type": "string",
+            "nullable": true
+          },
+          "TargetId": {
+            "type": "string",
+            "nullable": true
+          },
+          "Icon": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.Person": {
+        "title": "Person",
+        "type": "object",
+        "properties": {
+          "Name": {
+            "type": "string",
+            "nullable": true
+          },
+          "Email": {
+            "type": "string",
+            "nullable": true
+          },
+          "Telephone": {
+            "type": "string",
+            "nullable": true
+          },
+          "Image": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.JobLocationList": {
+        "title": "JobLocationList",
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.JobLocation"
+                },
+                {
+                  "type": "object",
+                  "nullable": true
+                }
+              ]
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.JobLocation": {
+        "title": "JobLocation",
+        "type": "object",
+        "properties": {
+          "Address": {
+            "type": "string",
+            "nullable": true
+          },
+          "City": {
+            "type": "string",
+            "nullable": true
+          },
+          "Province": {
+            "type": "string",
+            "nullable": true
+          },
+          "Country": {
+            "type": "string",
+            "nullable": true
+          },
+          "PostalCode": {
+            "type": "string",
+            "nullable": true
+          },
+          "WorkLocation": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.TeamFactList": {
+        "title": "TeamFactList",
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.TeamFact"
+                },
+                {
+                  "type": "object",
+                  "nullable": true
+                }
+              ]
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.TeamFact": {
+        "title": "TeamFact",
+        "type": "object",
+        "properties": {
+          "Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "LeadText": {
+            "type": "string",
+            "nullable": true
+          },
+          "FactIcon": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.CbsFactList": {
+        "title": "CbsFactList",
+        "type": "object",
+        "properties": {
+          "Items": {
+            "type": "array",
+            "items": {
+              "anyOf": [
+                {
+                  "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.CbsFact"
+                },
+                {
+                  "type": "object",
+                  "nullable": true
+                }
+              ]
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.CbsFact": {
+        "title": "CbsFact",
+        "type": "object",
+        "properties": {
+          "Title": {
+            "type": "string",
+            "nullable": true
+          },
+          "LeadText": {
+            "type": "string",
+            "nullable": true
+          },
+          "Value": {
+            "type": "string",
+            "nullable": true
+          },
+          "Period": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.ArticleType": {
+        "title": "ArticleType",
+        "enum": [
+          "Any",
+          "Article",
+          "Background",
+          "Custom",
+          "News",
+          "Publication",
+          "Visualisation",
+          "Corporate",
+          "Unknown"
+        ],
+        "type": "string"
+      },
+      "CBS.Website.ODataApi.Models.MediaType": {
+        "title": "MediaType",
+        "enum": [
+          "Any",
+          "Video",
+          "Chart",
+          "Image",
+          "Table",
+          "Unknown"
+        ],
+        "type": "string"
+      },
+      "CBS.Website.ODataApi.Models.PageType": {
+        "title": "PageType",
+        "enum": [
+          "Any",
+          "Page",
+          "Visualisation",
+          "Dossier",
+          "Overview",
+          "Form",
+          "Vacancy",
+          "Longread",
+          "LongreadChapter",
+          "Unknown"
+        ],
+        "type": "string"
+      },
+      "CBS.Website.ODataApi.Models.DefinitionType": {
+        "title": "DefinitionType",
+        "enum": [
+          "Any",
+          "FAQ",
+          "Explanation",
+          "Definition",
+          "Unknown"
+        ],
+        "type": "string"
+      },
+      "CBS.Website.ODataApi.Models.ODataErrors.ODataError": {
+        "required": [
+          "error"
+        ],
+        "type": "object",
+        "properties": {
+          "error": {
+            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.ODataErrors.MainError"
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.ODataErrors.MainError": {
+        "required": [
+          "code",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string",
+            "nullable": true
+          },
+          "details": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.ODataErrors.ErrorDetails"
+            }
+          },
+          "innererror": {
+            "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.ODataErrors.InnerError"
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.ODataErrors.ErrorDetails": {
+        "required": [
+          "code",
+          "message"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.ODataErrors.InnerError": {
+        "type": "object",
+        "description": "The structure of this object is service-specific"
+      },
+      "CBS.Website.ODataApi.Models.ArticleCollectionResponse": {
+        "title": "Collection of Article",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Article"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.DefinitionCollectionResponse": {
+        "title": "Collection of Definition",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Definition"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.MediumCollectionResponse": {
+        "title": "Collection of Medium",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Medium"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.CalendarEventCollectionResponse": {
+        "title": "Collection of CalendarEvent",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.CalendarEvent"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.FlashCollectionResponse": {
+        "title": "Collection of Flash",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Flash"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.PageCollectionResponse": {
+        "title": "Collection of Page",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Page"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.SearchResultItemCollectionResponse": {
+        "title": "Collection of SearchResultItem",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.SearchResultItem"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.VacancyCollectionResponse": {
+        "title": "Collection of Vacancy",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Vacancy"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.ErratumItemCollectionResponse": {
+        "title": "Collection of CBS.Website.ODataApi.Models.ErratumItem",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.ErratumItem"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.LinkCollectionResponse": {
+        "title": "Collection of CBS.Website.ODataApi.Models.Link",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.Link"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.JobLocationCollectionResponse": {
+        "title": "Collection of CBS.Website.ODataApi.Models.JobLocation",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.JobLocation"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.TeamFactCollectionResponse": {
+        "title": "Collection of CBS.Website.ODataApi.Models.TeamFact",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.TeamFact"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.CbsFactCollectionResponse": {
+        "title": "Collection of CBS.Website.ODataApi.Models.CbsFact",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.CbsFact"
+            }
+          }
+        }
+      },
+      "ReferenceUpdate": {
+        "type": "object",
+        "properties": {
+          "@odata.id": {
+            "type": "string"
+          },
+          "@odata.type": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      },
+      "ReferenceCreate": {
+        "type": "object",
+        "properties": {
+          "@odata.id": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": {
+          "type": "object"
+        }
+      },
+      "ReferenceNumeric": {
+        "enum": [
+          "-INF",
+          "INF",
+          "NaN"
+        ]
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.ODataErrors.ODataError"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.ArticleCollectionResponse": {
+        "description": "Retrieved collection",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.ArticleCollectionResponse"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.DefinitionCollectionResponse": {
+        "description": "Retrieved collection",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.DefinitionCollectionResponse"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.MediumCollectionResponse": {
+        "description": "Retrieved collection",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.MediumCollectionResponse"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.CalendarEventCollectionResponse": {
+        "description": "Retrieved collection",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.CalendarEventCollectionResponse"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.FlashCollectionResponse": {
+        "description": "Retrieved collection",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.FlashCollectionResponse"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.PageCollectionResponse": {
+        "description": "Retrieved collection",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.PageCollectionResponse"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.SearchResultItemCollectionResponse": {
+        "description": "Retrieved collection",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.SearchResultItemCollectionResponse"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.VacancyCollectionResponse": {
+        "description": "Retrieved collection",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.VacancyCollectionResponse"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.ErratumItemCollectionResponse": {
+        "description": "Retrieved collection",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.ErratumItemCollectionResponse"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.LinkCollectionResponse": {
+        "description": "Retrieved collection",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.LinkCollectionResponse"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.JobLocationCollectionResponse": {
+        "description": "Retrieved collection",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.JobLocationCollectionResponse"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.TeamFactCollectionResponse": {
+        "description": "Retrieved collection",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.TeamFactCollectionResponse"
+            }
+          }
+        }
+      },
+      "CBS.Website.ODataApi.Models.CbsFactCollectionResponse": {
+        "description": "Retrieved collection",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/CBS.Website.ODataApi.Models.CbsFactCollectionResponse"
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "top": {
+        "name": "$top",
+        "in": "query",
+        "description": "Show only the first n items",
+        "style": "form",
+        "explode": false,
+        "schema": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "example": 50
+      },
+      "skip": {
+        "name": "$skip",
+        "in": "query",
+        "description": "Skip the first n items",
+        "style": "form",
+        "explode": false,
+        "schema": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "count": {
+        "name": "$count",
+        "in": "query",
+        "description": "Include count of items",
+        "style": "form",
+        "explode": false,
+        "schema": {
+          "type": "boolean"
+        }
+      },
+      "filter": {
+        "name": "$filter",
+        "in": "query",
+        "description": "Filter items by property values",
+        "style": "form",
+        "explode": false,
+        "schema": {
+          "type": "string"
+        }
+      },
+      "search": {
+        "name": "$search",
+        "in": "query",
+        "description": "Search items by search phrases",
+        "style": "form",
+        "explode": false,
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "examples": {
+      "CBS.Website.ODataApi.Models.Article": {
+        "value": {
+          "ArticleType": {
+            "@odata.type": "CBS.Website.ODataApi.Models.ArticleType"
+          },
+          "ArticleTypeInt": 0,
+          "Authors": "String",
+          "Body": "String",
+          "Category": "String",
+          "Created": "0001-01-01T00:00:00.0000000+00:00",
+          "Downloads": {
+            "@odata.type": "CBS.Website.ODataApi.Models.LinkList"
+          },
+          "Errata": {
+            "@odata.type": "CBS.Website.ODataApi.Models.ErrataList"
+          },
+          "Footnote": "String",
+          "Image": "String",
+          "ImageAlt": "String",
+          "ISBN": "String",
+          "ISSN": "String",
+          "ItemNameLowerCase": "String",
+          "Language": "String",
+          "LeadText": "String",
+          "Links": {
+            "@odata.type": "CBS.Website.ODataApi.Models.LinkList"
+          },
+          "Location": "String",
+          "MetaDescription": "String",
+          "Permalink": "String",
+          "Photographer": "String",
+          "References": {
+            "@odata.type": "CBS.Website.ODataApi.Models.LinkList"
+          },
+          "ReleaseTime": "0001-01-01T00:00:00.0000000+00:00",
+          "Series": [
+            "String"
+          ],
+          "SortOrder": 0,
+          "TaxonomyTags": [
+            "String"
+          ],
+          "Themes": [
+            "String"
+          ],
+          "Title": "String",
+          "UniqueId": "String (identifier)",
+          "Updated": "0001-01-01T00:00:00.0000000+00:00",
+          "Url": "String",
+          "Version": 0
+        }
+      },
+      "CBS.Website.ODataApi.Models.Definition": {
+        "value": {
+          "Created": "0001-01-01T00:00:00.0000000+00:00",
+          "DefinitionType": {
+            "@odata.type": "CBS.Website.ODataApi.Models.DefinitionType"
+          },
+          "DefinitionTypeInt": 0,
+          "Description": "String",
+          "Language": "String",
+          "LeadText": "String",
+          "Links": {
+            "@odata.type": "CBS.Website.ODataApi.Models.LinkList"
+          },
+          "MetaDescription": "String",
+          "Permalink": "String",
+          "References": {
+            "@odata.type": "CBS.Website.ODataApi.Models.LinkList"
+          },
+          "Series": [
+            "String"
+          ],
+          "TaxonomyTags": [
+            "String"
+          ],
+          "Themes": [
+            "String"
+          ],
+          "Title": "String",
+          "UniqueId": "String (identifier)",
+          "Updated": "0001-01-01T00:00:00.0000000+00:00",
+          "Url": "String",
+          "Version": 0
+        }
+      },
+      "CBS.Website.ODataApi.Models.Medium": {
+        "value": {
+          "Created": "0001-01-01T00:00:00.0000000+00:00",
+          "Description": "String",
+          "ItemNameLowerCase": "String",
+          "Language": "String",
+          "LeadText": "String",
+          "MediaType": {
+            "@odata.type": "CBS.Website.ODataApi.Models.MediaType"
+          },
+          "MediaTypeInt": 0,
+          "MetaDescription": "String",
+          "Permalink": "String",
+          "ReleaseTime": "0001-01-01T00:00:00.0000000+00:00",
+          "Series": [
+            "String"
+          ],
+          "SortOrder": 0,
+          "TaxonomyTags": [
+            "String"
+          ],
+          "Themes": [
+            "String"
+          ],
+          "Title": "String",
+          "UniqueId": "String (identifier)",
+          "Updated": "0001-01-01T00:00:00.0000000+00:00",
+          "Url": "String",
+          "Version": 0
+        }
+      },
+      "CBS.Website.ODataApi.Models.CalendarEvent": {
+        "value": {
+          "Created": "0001-01-01T00:00:00.0000000+00:00",
+          "Description": "String",
+          "Image": "String",
+          "ImageAlt": "String",
+          "ItemNameLowerCase": "String",
+          "Language": "String",
+          "MetaDescription": "String",
+          "Permalink": "String",
+          "PlannedPublicationTime": "0001-01-01T00:00:00.0000000+00:00",
+          "Priority": 0,
+          "PublishTimeUnknown": true,
+          "RegionalClassification": "String",
+          "ReportingPeriod": "String",
+          "SortOrder": 0,
+          "Themes": [
+            "String"
+          ],
+          "Title": "String",
+          "UnderEmbargo": true,
+          "UniqueId": "String (identifier)",
+          "Updated": "0001-01-01T00:00:00.0000000+00:00",
+          "Url": "String",
+          "Version": 0
+        }
+      },
+      "CBS.Website.ODataApi.Models.Flash": {
+        "value": {
+          "Created": "0001-01-01T00:00:00.0000000+00:00",
+          "Description": "String",
+          "ItemNameLowerCase": "String",
+          "Language": "String",
+          "LeadText": "String",
+          "MetaDescription": "String",
+          "ReleaseTime": "0001-01-01T00:00:00.0000000+00:00",
+          "SortOrder": 0,
+          "Title": "String",
+          "UniqueId": "String (identifier)",
+          "Updated": "0001-01-01T00:00:00.0000000+00:00",
+          "Url": "String",
+          "Version": 0
+        }
+      },
+      "CBS.Website.ODataApi.Models.Page": {
+        "value": {
+          "Authors": "String",
+          "Body": "String",
+          "Category": [
+            "String"
+          ],
+          "Created": "0001-01-01T00:00:00.0000000+00:00",
+          "Downloads": {
+            "@odata.type": "CBS.Website.ODataApi.Models.LinkList"
+          },
+          "Edition": "String",
+          "Footnote": "String",
+          "Image": "String",
+          "ImageAlt": "String",
+          "ItemNameLowerCase": "String",
+          "Language": "String",
+          "LeadText": "String",
+          "Links": {
+            "@odata.type": "CBS.Website.ODataApi.Models.LinkList"
+          },
+          "Location": "String",
+          "MetaDescription": "String",
+          "PageType": {
+            "@odata.type": "CBS.Website.ODataApi.Models.PageType"
+          },
+          "PageTypeInt": 0,
+          "Permalink": "String",
+          "Photographer": "String",
+          "References": {
+            "@odata.type": "CBS.Website.ODataApi.Models.LinkList"
+          },
+          "ReleaseTime": "0001-01-01T00:00:00.0000000+00:00",
+          "ResearchCodes": [
+            "String"
+          ],
+          "Series": [
+            "String"
+          ],
+          "SortOrder": 0,
+          "SubTitle": "String",
+          "TaxonomyTags": [
+            "String"
+          ],
+          "Themes": [
+            "String"
+          ],
+          "Title": "String",
+          "UniqueId": "String (identifier)",
+          "Updated": "0001-01-01T00:00:00.0000000+00:00",
+          "Url": "String",
+          "Version": 0
+        }
+      },
+      "CBS.Website.ODataApi.Models.SearchResultItem": {
+        "value": {
+          "Body": "String",
+          "Description": "String",
+          "Image": "String",
+          "ImageAlt": "String",
+          "ItemNameLowerCase": "String",
+          "Language": "String",
+          "LeadText": "String",
+          "Location": "String",
+          "MetaDescription": "String",
+          "Permalink": "String",
+          "ReleaseTime": "0001-01-01T00:00:00.0000000+00:00",
+          "Snippet": "String",
+          "SortOrder": 0,
+          "TemplateName": "String",
+          "Themes": [
+            "String"
+          ],
+          "Title": "String",
+          "Type": "String",
+          "UniqueId": "String (identifier)",
+          "Url": "String"
+        }
+      },
+      "CBS.Website.ODataApi.Models.Vacancy": {
+        "value": {
+          "Body": "String",
+          "BreadCrumb": {
+            "@odata.type": "CBS.Website.ODataApi.Models.LinkList"
+          },
+          "CbsFacts": {
+            "@odata.type": "CBS.Website.ODataApi.Models.CbsFactList"
+          },
+          "ClosingDate": "0001-01-01T00:00:00.0000000+00:00",
+          "Created": "0001-01-01T00:00:00.0000000+00:00",
+          "Downloads": {
+            "@odata.type": "CBS.Website.ODataApi.Models.LinkList"
+          },
+          "EmploymentType": [
+            "String"
+          ],
+          "Engagement": "String",
+          "HoursPerWeek": "String",
+          "Image": "String",
+          "ImageAlt": "String",
+          "ItemNameLowerCase": "String",
+          "JobLocations": {
+            "@odata.type": "CBS.Website.ODataApi.Models.JobLocationList"
+          },
+          "Language": "String",
+          "LeadText": "String",
+          "LevelOfEducation": [
+            "String"
+          ],
+          "Links": {
+            "@odata.type": "CBS.Website.ODataApi.Models.LinkList"
+          },
+          "Location": "String",
+          "MaxSalary": 0,
+          "MetaDescription": "String",
+          "MinSalary": 0,
+          "MoreInformation": "String",
+          "Permalink": "String",
+          "PublicationDate": "0001-01-01T00:00:00.0000000+00:00",
+          "Recruiter": {
+            "@odata.type": "CBS.Website.ODataApi.Models.Person"
+          },
+          "References": {
+            "@odata.type": "CBS.Website.ODataApi.Models.LinkList"
+          },
+          "Salary": "String",
+          "SalaryPeriod": "String",
+          "SortOrder": 0,
+          "TeamFacts": {
+            "@odata.type": "CBS.Website.ODataApi.Models.TeamFactList"
+          },
+          "TermsOfEmployment": "String",
+          "TheWork": "String",
+          "Title": "String",
+          "UniqueId": "String (identifier)",
+          "Updated": "0001-01-01T00:00:00.0000000+00:00",
+          "Url": "String",
+          "VacancyCategory": [
+            "String"
+          ],
+          "VacancyNumber": "String",
+          "Version": 0,
+          "WorkingEnvironment": "String",
+          "WorkLocation": [
+            "String"
+          ],
+          "YourProfile": "String"
+        }
+      },
+      "CBS.Website.ODataApi.Models.ErrataList": {
+        "value": {
+          "Items": [
+            {
+              "@odata.type": "CBS.Website.ODataApi.Models.ErratumItem"
+            }
+          ]
+        }
+      },
+      "CBS.Website.ODataApi.Models.ErratumItem": {
+        "value": {
+          "Body": "String",
+          "PresentationTime": "0001-01-01T00:00:00.0000000+00:00"
+        }
+      },
+      "CBS.Website.ODataApi.Models.LinkList": {
+        "value": {
+          "Items": [
+            {
+              "@odata.type": "CBS.Website.ODataApi.Models.Link"
+            }
+          ]
+        }
+      },
+      "CBS.Website.ODataApi.Models.Link": {
+        "value": {
+          "Icon": "String",
+          "Prefix": "String",
+          "TargetId": "String",
+          "Text": "String",
+          "Url": "String"
+        }
+      },
+      "CBS.Website.ODataApi.Models.Person": {
+        "value": {
+          "Email": "String",
+          "Image": "String",
+          "Name": "String",
+          "Telephone": "String"
+        }
+      },
+      "CBS.Website.ODataApi.Models.JobLocationList": {
+        "value": {
+          "Items": [
+            {
+              "@odata.type": "CBS.Website.ODataApi.Models.JobLocation"
+            }
+          ]
+        }
+      },
+      "CBS.Website.ODataApi.Models.JobLocation": {
+        "value": {
+          "Address": "String",
+          "City": "String",
+          "Country": "String",
+          "PostalCode": "String",
+          "Province": "String",
+          "WorkLocation": "String"
+        }
+      },
+      "CBS.Website.ODataApi.Models.TeamFactList": {
+        "value": {
+          "Items": [
+            {
+              "@odata.type": "CBS.Website.ODataApi.Models.TeamFact"
+            }
+          ]
+        }
+      },
+      "CBS.Website.ODataApi.Models.TeamFact": {
+        "value": {
+          "FactIcon": "String",
+          "LeadText": "String",
+          "Title": "String"
+        }
+      },
+      "CBS.Website.ODataApi.Models.CbsFactList": {
+        "value": {
+          "Items": [
+            {
+              "@odata.type": "CBS.Website.ODataApi.Models.CbsFact"
+            }
+          ]
+        }
+      },
+      "CBS.Website.ODataApi.Models.CbsFact": {
+        "value": {
+          "LeadText": "String",
+          "Period": "String",
+          "Title": "String",
+          "Value": "String"
+        }
+      }
+    },
+    "requestBodies": {
+      "refPostBody": {
+        "description": "New navigation property ref value",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ReferenceCreate"
+            }
+          }
+        },
+        "required": true
+      },
+      "refPutBody": {
+        "description": "New navigation property ref values",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/ReferenceUpdate"
+            }
+          }
+        },
+        "required": true
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Articles.Article",
+      "x-ms-docs-toc-type": "page"
+    },
+    {
+      "name": "Definitions.Definition",
+      "x-ms-docs-toc-type": "page"
+    },
+    {
+      "name": "Events.CalendarEvent",
+      "x-ms-docs-toc-type": "page"
+    },
+    {
+      "name": "Flash.Flash",
+      "x-ms-docs-toc-type": "page"
+    },
+    {
+      "name": "Articles",
+      "x-ms-docs-toc-type": "container"
+    },
+    {
+      "name": "Media",
+      "x-ms-docs-toc-type": "container"
+    },
+    {
+      "name": "Pages",
+      "x-ms-docs-toc-type": "container"
+    },
+    {
+      "name": "Search",
+      "x-ms-docs-toc-type": "container"
+    },
+    {
+      "name": "Media.Medium",
+      "x-ms-docs-toc-type": "page"
+    },
+    {
+      "name": "Pages.Page",
+      "x-ms-docs-toc-type": "page"
+    },
+    {
+      "name": "Search.SearchResultItem",
+      "x-ms-docs-toc-type": "page"
+    },
+    {
+      "name": "Vacancies.Vacancy",
+      "x-ms-docs-toc-type": "page"
+    }
+  ]
+}
