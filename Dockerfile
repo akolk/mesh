@@ -15,7 +15,8 @@ COPY package.json \
      .meshrc.yaml \
      locatieserver_openapi.yaml \
      CBS85496.xml \
-     CBS70072.xml .
+     CBS70072.xml \
+     CBS85814.xml .
 
 EXPOSE 80
 
