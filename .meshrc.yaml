@@ -14,7 +14,17 @@ sources:
         expandNavProps: true
     transforms:
       - prefix:
-          value: CBS
+          value: CBS85496
+          includeRootOperations: true
+  - name: CBS70072ned 
+    handler:
+      odata:
+        endpoint: https://opendata.cbs.nl/ODataApi/odata/70072ned/
+        source: ./CB70072.xml
+        expandNavProps: true
+    transform:
+      - prefix:
+          value: CBS70072
           includeRootOperations: true
         
   - name: LOC
