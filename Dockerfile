@@ -11,6 +11,10 @@ RUN ln -s /usr/bin/python3 /usr/bin/python & \
     ln -s /usr/bin/pip3 /usr/bin/pip
 
 WORKDIR /myapp
+
+EXPOSE 80
+
+RUN yarn install 
 COPY package.json \
      .meshrc.yaml \
      locatieserver_openapi.yaml \
@@ -18,8 +22,5 @@ COPY package.json \
      CBS85496.xml \
      CBS70072.xml \
      CBS85814.xml .
-
-EXPOSE 80
-
-RUN yarn install 
+     
 CMD ["yarn", "mesh", "dev"]
