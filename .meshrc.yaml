@@ -12,6 +12,8 @@ sources:
         source: ./cbsopenapi.json
         endpoint: https://www.cbs.nl/odata/v1/
         ignoreErrorResponses: true
+        operationHeaders:
+          Content-Type: application/json
     transforms:
       - prefix:
           value: CBS
