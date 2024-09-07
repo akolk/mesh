@@ -1,5 +1,5 @@
 #FROM node:20.17-alpine3.20@sha256:2d07db07a2df6830718ae2a47db6fedce6745f5bcd174c398f2acdda90a11c03
-FROM node:latest@sha256:bd00c03095f7586432805dbf7989be10361d27987f93de904b1fc003949a4794
+FROM node:alpine3.20@sha256:bec0ea49c2333c429b62e74e91f8ba1201b060110745c3a12ff957cd51b363c6
 
 RUN apk update && apk upgrade && apk add --no-cache make gcc g++
 RUN apk add curl
