@@ -16,13 +16,14 @@ sources:
       - prefix:
           value: CBS85496
           includeRootOperations: true
-  - name: CBS70072ned 
+          
+  - name: CBS70072ned
     handler:
       odata:
         endpoint: https://opendata.cbs.nl/ODataApi/odata/70072ned/
         source: ./CBS70072.xml
         expandNavProps: true
-    transform:
+    transforms:
       - prefix:
           value: CBS70072
           includeRootOperations: true
