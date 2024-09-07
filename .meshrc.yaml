@@ -20,7 +20,7 @@ sources:
     handler:
       odata:
         endpoint: https://opendata.cbs.nl/ODataApi/odata/70072ned/
-        source: ./CB70072.xml
+        source: ./CBS70072.xml
         expandNavProps: true
     transform:
       - prefix:
