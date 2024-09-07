@@ -13,7 +13,8 @@ WORKDIR /myapp
 COPY package.json \
      .meshrc.yaml \
      locatieserver_openapi.yaml \
-     CBS85496.xml .
+     CBS85496.xml \
+     CBS70072.xml .
 
 EXPOSE 80
 
