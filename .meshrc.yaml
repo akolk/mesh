@@ -27,7 +27,18 @@ sources:
       - prefix:
           value: CBS70072
           includeRootOperations: true
-        
+          
+  - name: CBS85814NED
+    handler: 
+      odata:
+        endpoint: https://opendata.cbs.nl/ODataApi/odata/85814NED/
+        source: ./CBS85814.xml
+        expandNavProps: true
+    transforms: 
+      - prefix:
+          value: CBS85814
+          includeRootOperations: true
+          
   - name: LOC
     handler:
       openapi:
