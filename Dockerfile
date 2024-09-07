@@ -12,10 +12,10 @@ RUN ln -s /usr/bin/python3 /usr/bin/python & \
 WORKDIR /myapp
 
 EXPOSE 80
-
+COPY package.json  .
 RUN yarn install 
-COPY package.json \
-     .meshrc.yaml \
+
+COPY .meshrc.yaml \
      locatieserver_openapi.yaml \
      cbsopenapi.json \
      CBS85496.xml \
