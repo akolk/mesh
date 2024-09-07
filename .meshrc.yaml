@@ -3,7 +3,7 @@ serve:
   browser: false
   playground: true
   endpoint: /mesh
-  playgroundTitle: Gebouw Dossier Demo Playground
+  playgroundTitle: CBS Demo Playground
 
 sources:
   - name: CBS85496NED
