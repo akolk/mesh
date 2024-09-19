@@ -43,8 +43,8 @@ def fetch_metadata_and_generate_yaml(dataset_name):
             }
             
             # Save YAML configuration
-            yaml_filename = f"{dataset_id}_graphql_mesh.yaml"
-            with open(yaml_filename, 'w') as yaml_file:
+            yaml_filename = f".meshrc.yaml"
+            with open(yaml_filename, 'a') as yaml_file:
                 yaml.dump(yaml_data, yaml_file, default_flow_style=False)
             
             print(f"YAML configuration for {dataset_name} saved as {yaml_filename}")
