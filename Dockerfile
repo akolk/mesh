@@ -18,8 +18,7 @@ RUN yarn install
 COPY .meshrc.yaml \
      locatieserver_openapi.yaml \
      cbsopenapi.json \
-     CBS85496.xml \
-     CBS70072.xml \
-     CBS85814.xml .
+     config.py \
+     datasets.txt .
      
 CMD ["yarn", "mesh", "dev"]
