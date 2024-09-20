@@ -1,1 +1,3 @@
-"CBS71090","https://" 
+https://opendata.cbs.nl/ODataApi/odata/85496NED
+https://opendata.cbs.nl/ODataApi/odata/70072ned
+https://opendata.cbs.nl/ODataApi/odata/85814NED
