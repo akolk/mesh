@@ -20,5 +20,6 @@ COPY .meshrc.yaml \
      cbsopenapi.json \
      config.py \
      datasets.txt .
-     
+
+RUN python3 config.py
 CMD ["yarn", "mesh", "dev"]
