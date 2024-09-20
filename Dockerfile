@@ -19,6 +19,7 @@ COPY .meshrc.yaml \
      locatieserver_openapi.yaml \
      cbsopenapi.json \
      config.py \
+     requirements.txt \
      datasets.txt .
 
 RUN pip3 install -r requirements.txt
