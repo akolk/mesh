@@ -37,7 +37,15 @@ def fetch_metadata_and_generate_yaml(dataset_name):
                                 "endpoint": dataset_name,  # OData service URL
                                 "source": metadata_file_path  # Local file path to the metadata
                             }
-                        }
+                        },
+                         "transforms" : [
+                            { "prefix" : {
+                                "value" : dataset_id,
+                                "includeRootOperations": True
+                               }
+                            }
+                        ]
+                        
                     }
             sources_list.append(source_data)
 
