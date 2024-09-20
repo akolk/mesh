@@ -31,7 +31,7 @@ def fetch_metadata_and_generate_yaml(dataset_name):
             
             # Generate YAML configuration for GraphQL Mesh, pointing to the local metadata file
             source_data = {
-                        "name": dataset_id,  # Use the dataset ID as the source name
+                        "name": f"CBS{dataset_id}",  # Use the dataset ID as the source name
                         "handler": {
                             "odata": {
                                 "endpoint": dataset_name,  # OData service URL
