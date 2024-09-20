@@ -2,7 +2,7 @@
 FROM node:alpine3.20@sha256:c9bb43423a6229aeddf3d16ae6aaa0ff71a0b2951ce18ec8fedb6f5d766cf286
 
 RUN apk update && apk upgrade && apk add --no-cache make gcc g++ curl
-RUN apk add --update --no-cache python3 py3-pip && ln -sf python3 /usr/bin/python
+RUN apk add --update --no-cache python3 py3-pip py3-requests py3-pyyaml && ln -sf python3 /usr/bin/python
 RUN apk add curl-dev python3-dev
 
 # zorg dat sqlite later bij de yarn install een python executable kan vinden
@@ -22,6 +22,6 @@ COPY .meshrc.yaml \
      requirements.txt \
      datasets.txt .
 
-RUN pip3 install -r requirements.txt
+#RUN pip3 install -r requirements.txt
 RUN python3 config.py
 CMD ["yarn", "mesh", "dev"]
