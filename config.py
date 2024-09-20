@@ -88,7 +88,7 @@ cbs = {
     "transforms": [
       { "prefix": {
           "value": "CBS",
-          "includeRootOperations": true
+          "includeRootOperations": True
       }
       }
     ]
