@@ -61,13 +61,13 @@ loc = {
                             "openapi": {
                                 "endpoint": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/",  
                                 "source": "./locatieserver_openapi.yaml",
-                                "ignoreErrorResponse" : "true" 
+                                "ignoreErrorResponse" : True 
                             }
                         },
                         "transforms" : [
                             { "prefix" : {
                                 "value" : "LOC",
-                                "includeRootOperations": true
+                                "includeRootOperations": True
                                }
                             }
                         ]
@@ -79,7 +79,7 @@ cbs = {
       "openapi": {
         "source": "./cbsopenapi.json",
         "endpoint": "https://www.cbs.nl/odata/v1/",
-        "ignoreErrorResponses": true,
+        "ignoreErrorResponses": True,
         "operationHeaders": {
           "Content-Type": "application/json"
         }
@@ -102,10 +102,10 @@ for dataset in dataset_names:
 yaml_data = {
    "serve": {
       "port" : 80,
-      "browser": false,
-      "playground" : true,
+      "browser": False,
+      "playground" : True,
       "endpoint": "/mesh",
-      "playgroundTitle": CBS Demo Playground
+      "playgroundTitle": "CBS Demo Playground"
    },
    "sources": sources_list
 }
