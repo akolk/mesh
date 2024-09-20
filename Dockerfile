@@ -21,5 +21,6 @@ COPY .meshrc.yaml \
      config.py \
      datasets.txt .
 
+RUN pip3 install -r requirements.txt
 RUN python3 config.py
 CMD ["yarn", "mesh", "dev"]
