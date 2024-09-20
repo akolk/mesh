@@ -40,7 +40,7 @@ def fetch_metadata_and_generate_yaml(dataset_name):
                         },
                          "transforms" : [
                             { "prefix" : {
-                                "value" : dataset_id,
+                                "value" : f"CBS{dataset_id}",
                                 "includeRootOperations": True
                                }
                             }
