@@ -6,8 +6,8 @@ RUN apk add --update --no-cache python3 py3-pip && ln -sf python3 /usr/bin/pytho
 RUN apk add curl-dev python3-dev
 
 # zorg dat sqlite later bij de yarn install een python executable kan vinden
-RUN ln -s /usr/bin/python3 /usr/bin/python & \
-    ln -s /usr/bin/pip3 /usr/bin/pip
+#RUN ln -s /usr/bin/python3 /usr/bin/python & \
+#    ln -s /usr/bin/pip3 /usr/bin/pip
 
 WORKDIR /myapp
 
