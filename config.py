@@ -2,6 +2,8 @@ import requests
 import yaml
 import os
 
+sources_list = []
+
 # Function to fetch metadata, modify it, and generate a YAML configuration
 def fetch_metadata_and_generate_yaml(dataset_name):
     try:
@@ -28,25 +30,17 @@ def fetch_metadata_and_generate_yaml(dataset_name):
             metadata_file_path = os.path.abspath(metadata_filename)
             
             # Generate YAML configuration for GraphQL Mesh, pointing to the local metadata file
-            yaml_data = {
-                "sources": [
-                    {
+            source_data = {
                         "name": dataset_id,  # Use the dataset ID as the source name
                         "handler": {
                             "odata": {
                                 "endpoint": dataset_name,  # OData service URL
-                                "metadataUrl": metadata_file_path  # Local file path to the metadata
+                                "source": metadata_file_path  # Local file path to the metadata
                             }
                         }
                     }
-                ]
-            }
-            
-            # Save YAML configuration
-            yaml_filename = f".meshrc.yaml"
-            with open(yaml_filename, 'a') as yaml_file:
-                yaml.dump(yaml_data, yaml_file, default_flow_style=False)
-            
+            sources_list.append(source_data)
+
             print(f"YAML configuration for {dataset_name} saved as {yaml_filename}")
         else:
             print(f"Failed to fetch metadata for {dataset_name}. Status code: {response.status_code}")
@@ -61,6 +55,62 @@ with open("datasets.txt", "r") as file:
 # Strip any extra spaces or newlines from each line
 dataset_names = [name.strip() for name in dataset_names]
 
+loc = {
+                        "name": "LOC" ,  # Use the dataset ID as the source name
+                        "handler": {
+                            "openapi": {
+                                "endpoint": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/",  
+                                "source": "./locatieserver_openapi.yaml",
+                                "ignoreErrorResponse" : "true" 
+                            }
+                        },
+                        "transforms" : [
+                            { "prefix" : {
+                                "value" : "LOC",
+                                "includeRootOperations": true
+                               }
+                            }
+                        ]
+}
+
+cbs = {
+    "name" : "CBS",
+    "handler": {
+      "openapi": {
+        "source": "./cbsopenapi.json",
+        "endpoint": "https://www.cbs.nl/odata/v1/",
+        "ignoreErrorResponses": true,
+        "operationHeaders": {
+          "Content-Type": "application/json"
+        }
+      }
+    },
+    "transforms": [
+      { "prefix": {
+          "value": "CBS",
+          "includeRootOperations": true
+      }
+      }
+    ]
+}
+sources_list.append(loc) 
+sources_list.append(cbs)
 # Process each dataset
 for dataset in dataset_names:
     fetch_metadata_and_generate_yaml(dataset)
+
+yaml_data = {
+   "serve": {
+      "port" : 80,
+      "browser": false,
+      "playground" : true,
+      "endpoint": "/mesh",
+      "playgroundTitle": CBS Demo Playground
+   },
+   "sources": sources_list
+}
+
+# Save YAML configuration
+yaml_filename = f".meshrc.yaml"
+with open(yaml_filename, 'a') as yaml_file:
+    yaml.dump(yaml_data, yaml_file, default_flow_style=False)
