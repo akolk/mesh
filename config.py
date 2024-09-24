@@ -9,9 +9,13 @@ def fetch_metadata_and_generate_yaml(dataset_name):
     try:
         # Assuming the dataset_name is part of the URL
         url = f"{dataset_name}/$metadata"
+        headers = {
+            'accept' : 'application/xml' 
+        }
         
         # Fetch the metadata
-        response = requests.get(url)
+        response = requests.get(url, headers=headers)
+        print(url)
         print(response.request.headers)
         print(response.headers)
         if response.status_code == 200:
