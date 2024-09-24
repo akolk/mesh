@@ -20,6 +20,7 @@ def fetch_metadata_and_generate_yaml(dataset_name):
             
             # Save the metadata file locally
             dataset_id = dataset_name.split('/')[-1]  # Extract dataset name for filenames
+            dataset_id = dataset_id.replace(".", "")
             metadata_filename = f"{dataset_id}_metadata.xml"
             with open(metadata_filename, 'w') as file:
                 file.write(modified_metadata)
