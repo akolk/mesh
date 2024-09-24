@@ -1,4 +1,6 @@
-https://datasets.cbs.nl/odata/85496NED
-https://datasets.cbs.nl/odata/70072ned
-https://datasets.cbs.nl/odata/85814NED
+https://datasets.cbs.nl/odata/v1/CBS/85496NED
+https://datasets.cbs.nl/odata/v1/CBS/00377
+https://datasets.cbs.nl/odata/v1/CBS/70072ned
+https://datasets.cbs.nl/odata/v1/CBS/85814NED
+https://datasets.cbs.nl/odata/v1
 https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0
