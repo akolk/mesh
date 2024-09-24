@@ -12,6 +12,8 @@ def fetch_metadata_and_generate_yaml(dataset_name):
         
         # Fetch the metadata
         response = requests.get(url)
+        print(response.request.headers)
+        print(response.headers)
         if response.status_code == 200:
             metadata = response.text
             
