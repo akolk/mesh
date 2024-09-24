@@ -53,7 +53,8 @@ def fetch_metadata_and_generate_yaml(dataset_name):
             print(f"YAML configuration for {dataset_name} saved.")
         else:
             print(f"Failed to fetch metadata for {dataset_name}. Status code: {response.status_code}")
-    
+            print(response.text)
+            
     except Exception as e:
         print(f"An error occurred while processing {dataset_name}: {e}")
 
