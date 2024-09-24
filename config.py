@@ -16,7 +16,7 @@ def fetch_metadata_and_generate_yaml(dataset_name):
             metadata = response.text
             
             # Replace 'Edm.DateTime' with 'Edm.DateTimeOffset'
-            modified_metadata = metadata.replace("Edm.DateTime", "Edm.DateTimeOffset")
+            modified_metadata = metadata.replace('"Edm.DateTime"', '"Edm.DateTimeOffset"')
             
             # Save the metadata file locally
             dataset_id = dataset_name.split('/')[-1]  # Extract dataset name for filenames
