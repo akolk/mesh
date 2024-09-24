@@ -49,7 +49,7 @@ def fetch_metadata_and_generate_yaml(dataset_name):
                     }
             sources_list.append(source_data)
 
-            print(f"YAML configuration for {dataset_name} saved as {yaml_filename}")
+            print(f"YAML configuration for {dataset_name} saved.")
         else:
             print(f"Failed to fetch metadata for {dataset_name}. Status code: {response.status_code}")
     
