@@ -1,4 +1,10 @@
 https://datasets.cbs.nl/odata/v1/CBS/00377
 https://datasets.cbs.nl/odata/v1
 https://datasets.cbs.nl/odata/v1/CBS/03742
+https://datasets.cbs.nl/odata/v1/CBS/85999NED
+https://datasets.cbs.nl/odata/v1/CBS/85900NED
+https://datasets.cbs.nl/odata/v1/CBS/85586NED
+https://datasets.cbs.nl/odata/v1/CBS/85618NED
+https://datasets.cbs.nl/odata/v1/CBS/85586NED
+https://datasets.cbs.nl/odata/v1/CBS/85830NED
 https://gegevensmagazijn.tweedekamer.nl/OData/v4/2.0
