@@ -42,7 +42,8 @@ def fetch_metadata_and_generate_yaml(dataset_name):
                         "handler": {
                             "odata": {
                                 "endpoint": dataset_name,  # OData service URL
-                                "source": metadata_file_path  # Local file path to the metadata
+                                "source": metadata_file_path,  # Local file path to the metadata
+                                "expandNavProps": True
                             }
                         },
                          "transforms" : [
