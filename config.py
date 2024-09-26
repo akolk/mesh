@@ -78,7 +78,7 @@ loc = {
                             "openapi": {
                                 "endpoint": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/",  
                                 "source": "./locatieserver_openapi.yaml",
-                                "ignoreErrorResponse" : True 
+                                "ignoreErrorResponse" : False
                             }
                         },
                         "transforms" : [
@@ -96,7 +96,7 @@ cbs = {
       "openapi": {
         "source": "./cbsopenapi.json",
         "endpoint": "https://www.cbs.nl/odata/v1/",
-        "ignoreErrorResponses": True,
+        "ignoreErrorResponses": False,
         "operationHeaders": {
           "Content-Type": "application/json"
         }
