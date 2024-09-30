@@ -14,15 +14,16 @@ def fetch_metadata_and_generate_yaml(dataset_name):
         }
         
         # Fetch the metadata
-        response = requests.get(url, headers=headers)
-        print(url)
-        print(response.request.headers)
-        print(response.headers)
+        #response = requests.get(url, headers=headers)
+        #print(url)
+        #print(response.request.headers)
+        #print(response.headers)
         if response.status_code == 200:
             metadata = response.text
             
             # Replace 'Edm.DateTime' with 'Edm.DateTimeOffset'
             modified_metadata = metadata.replace('"Edm.DateTime"', '"Edm.DateTimeOffset"')
+            modified_metadata = metadata
             
             # Save the metadata file locally
             dataset_id = dataset_name.split('/')[-1]  # Extract dataset name for filenames
@@ -73,21 +74,21 @@ with open("datasets.txt", "r") as file:
 dataset_names = [name.strip() for name in dataset_names]
 
 loc = {
-                        "name": "LOC" ,  # Use the dataset ID as the source name
-                        "handler": {
-                            "openapi": {
-                                "endpoint": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/",  
-                                "source": "./locatieserver_openapi.yaml",
-                                "ignoreErrorResponse" : False
-                            }
-                        },
-                        "transforms" : [
-                            { "prefix" : {
-                                "value" : "LOC",
-                                "includeRootOperations": True
-                               }
-                            }
-                        ]
+    "name": "LOC" ,  # Use the dataset ID as the source name
+    "handler": {
+      "openapi": {
+        "endpoint": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/",  
+        "source": "./locatieserver_openapi.yaml",
+        "ignoreErrorResponse" : False
+      }
+    },
+    "transforms" : [
+       { "prefix" : {
+         "value" : "LOC",
+         "includeRootOperations": True
+       }
+    }
+   ]
 }
 
 cbs = {
