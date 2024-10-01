@@ -14,7 +14,7 @@ def fetch_metadata_and_generate_yaml(dataset_name):
         }
         
         # Fetch the metadata
-        #response = requests.get(url, headers=headers)
+        response = requests.get(url, headers=headers)
         #print(url)
         #print(response.request.headers)
         #print(response.headers)
