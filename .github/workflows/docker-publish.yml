@@ -83,14 +83,6 @@ jobs:
           cache-to: type=gha,mode=max
           platforms: linux/amd64,linux/arm64
           
-      - name: Scan Docker image with Trivy
-        uses: aquasecurity/trivy-action@0.28.0
-        with:
-          # 
-          image-ref: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
-          format: 'table'
-          exit-code: '0'
-          severity: 'UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL' 
           
       # Sign the resulting Docker image digest except on PRs.
       # This will only write to the public Rekor transparency log when the Docker
