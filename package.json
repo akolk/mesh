@@ -25,7 +25,7 @@
     "@graphql-mesh/tuql": "0.103.12",
     "graphql-scalars": "1.23.0",
     "@graphql-tools/utils": "10.5.6",
-    "@graphql-mesh/config": "0.105.1",
+    "@graphql-mesh/config": "0.105.2",
     "@graphql-mesh/odata": "0.104.12",
     "@graphql-mesh/runtime": "0.104.1",
     "moment": "2.30.1",
