@@ -19,7 +19,7 @@
     "@graphql-mesh/transform-rename": "0.102.12",
     "@graphql-mesh/transform-filter-schema": "0.102.13",
     "@graphql-mesh/transform-prefix": "0.102.12",
-    "@graphql-mesh/transform-hoist-field": "0.102.12",
+    "@graphql-mesh/transform-hoist-field": "0.102.13",
     "@graphql-mesh/transform-replace-field": "0.102.12",
     "@graphql-mesh/transform-type-merging": "0.102.12",
     "@graphql-mesh/tuql": "0.103.12",
