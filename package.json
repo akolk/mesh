@@ -27,7 +27,7 @@
     "@graphql-tools/utils": "10.7.2",
     "@graphql-mesh/config": "0.106.17",
     "@graphql-mesh/odata": "0.105.11",
-    "@graphql-mesh/runtime": "0.105.11",
+    "@graphql-mesh/runtime": "0.105.12",
     "moment": "2.30.1",
     "typescript": "5.7.2",
     "ts-node": "10.9.2",
