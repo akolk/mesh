@@ -24,7 +24,7 @@
     "@graphql-mesh/transform-type-merging": "0.103.12",
     "@graphql-mesh/tuql": "0.104.12",
     "graphql-scalars": "1.24.1",
-    "@graphql-tools/utils": "10.7.2",
+    "@graphql-tools/utils": "10.8.0",
     "@graphql-mesh/config": "0.106.18",
     "@graphql-mesh/odata": "0.105.12",
     "@graphql-mesh/runtime": "0.105.13",
