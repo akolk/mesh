@@ -1,5 +1,5 @@
 #FROM node:20.17-alpine3.20@sha256:2d07db07a2df6830718ae2a47db6fedce6745f5bcd174c398f2acdda90a11c03
-FROM node:alpine3.20@sha256:0b5e04c9ee063720e29b72a19df52d613459b518ffdfd4ea9870336178dcbf4e
+FROM node:alpine3.20@sha256:50c93cbbbdafa62b358e82989c3cd4738a0314285f7ba7d0947a782aeaffc4a3
 
 RUN apk update && apk upgrade && apk add --no-cache make gcc g++ curl
 RUN apk add --update --no-cache python3 py3-pip py3-requests py3-yaml && ln -sf python3 /usr/bin/python
