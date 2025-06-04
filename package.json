@@ -15,7 +15,7 @@
     "@graphql-mesh/types": "0.104.3",
     "@graphql-mesh/json-schema": "0.109.5",
     "@graphql-mesh/graphql": "0.104.4",
-    "@graphql-mesh/openapi": "0.109.9",
+    "@graphql-mesh/openapi": "0.109.10",
     "@graphql-mesh/transform-rename": "0.105.4",
     "@graphql-mesh/transform-filter-schema": "0.104.3",
     "@graphql-mesh/transform-prefix": "0.105.4",
