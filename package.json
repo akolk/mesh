@@ -10,7 +10,7 @@
     "xml2js": "0.6.2",
     "@graphql-mesh/utils": "0.104.18",
     "@graphql-mesh/cli": "0.100.22",
-    "@graphql-mesh/store": "0.104.19", 
+    "@graphql-mesh/store": "0.104.20", 
     "@graphql-mesh/cross-helpers": "0.4.11",
     "@graphql-mesh/types": "0.104.18",
     "@graphql-mesh/json-schema": "0.109.21",
