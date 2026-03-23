@@ -9,7 +9,7 @@
   "dependencies": {
     "xml2js": "0.6.2",
     "@graphql-mesh/utils": "0.104.28",
-    "@graphql-mesh/cli": "0.100.40",
+    "@graphql-mesh/cli": "0.100.41",
     "@graphql-mesh/store": "0.104.31", 
     "@graphql-mesh/cross-helpers": "0.4.12",
     "@graphql-mesh/types": "0.104.25",
