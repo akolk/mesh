@@ -20,7 +20,7 @@
     "@graphql-mesh/transform-filter-schema": "0.104.35",
     "@graphql-mesh/transform-prefix": "0.105.35",
     "@graphql-mesh/transform-hoist-field": "0.105.35",
-    "@graphql-mesh/transform-replace-field": "0.105.35",
+    "@graphql-mesh/transform-replace-field": "0.105.36",
     "@graphql-mesh/transform-type-merging": "0.104.33",
     "@graphql-mesh/tuql": "0.105.25",
     "graphql-scalars": "1.25.0",
