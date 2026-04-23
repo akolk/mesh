@@ -11,7 +11,7 @@
     "@graphql-mesh/utils": "0.104.33",
     "@graphql-mesh/cli": "0.100.51",
     "@graphql-mesh/store": "0.104.36", 
-    "@graphql-mesh/cross-helpers": "0.4.12",
+    "@graphql-mesh/cross-helpers": "0.4.14",
     "@graphql-mesh/types": "0.104.25",
     "@graphql-mesh/json-schema": "0.109.39",
     "@graphql-mesh/graphql": "0.104.37",
